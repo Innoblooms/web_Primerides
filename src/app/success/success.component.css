@@ -1,0 +1,90 @@
+/* shared-styles.css */
+
+.card-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+  }
+  
+  .card {
+    width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .card-header {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .success-logo {
+    text-align: center;
+    margin: 10px 0;
+  }
+  
+  .success-logo img {
+    width: 50px; /* Adjust the size as needed */
+    height: 50px;
+  }
+  
+  .success-icon {
+    color: #4CAF50; /* Green color */
+    border: 2px solid #4CAF50; /* Green color border */
+    border-radius: 50%; /* Rounded border for a circle effect */
+    padding: 10px; /* Padding around the icon */
+    display: inline-flex; /* Align icon center horizontally and vertically */
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card-content {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .card-footer {
+    background-color: #ecf0f1;
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .btn {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .btn:hover {
+    background-color: #45a049;
+  }
+  
+  /* animated-card.component.css */
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .fade-in {
+    animation: fadeIn 1s ease-in-out;
+  }
+  

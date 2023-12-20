@@ -1,0 +1,21 @@
+<!-- failed.component.html -->
+
+<div class="card-container">
+  <div class="card" [@fadeIn]="'in'">
+    <div class="card-header">
+      <h2>Payment Failed</h2>
+    </div>
+    <div class="status-logo fade-in failure">
+      <!-- Use a times icon for failure -->
+      <i class="fa fa-2x fa-times failure-icon"></i>
+    </div>
+    <div class="card-content fade-in failure-content">
+      <p>
+        Oops! It seems there was an issue with your payment. Please check your details and try again.
+      </p>
+    </div>
+    <div class="card-footer fade-in">
+      <button class="btn" (click)="goBack()">Back</button>
+    </div>
+  </div>
+</div>

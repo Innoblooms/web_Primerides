@@ -1,0 +1,300 @@
+.vendor-carousel {
+  display: flex;
+ 
+}
+
+
+
+.secondary{
+  background: rgb(3,3,36);
+  /* background: var(--secondary); */
+ 
+}
+.text-third{
+  color: #b17316;
+  color: #c7b105;
+}
+
+
+.custom-select {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.custom-select select {
+  width: 100%;
+  padding: 0.375rem 1.75rem 0.375rem 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  height: 40px;
+  overflow-y: auto;
+  max-height: 200px;
+}
+
+.selected-option {
+  border: 1px solid #ced4da;
+  padding: 0.375rem 1.75rem 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+  display: inline-block;
+}
+
+h1 {
+  text-align: center;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  background: #f77d0A;
+  border: linear-gradient(45deg, #f77d0A, #916262);
+  border-radius: 15px;
+ 
+}
+
+.rental-option { 
+  color: black;
+  text-align: center;
+  padding: 6px 6px 6px 6px;
+  border-radius: 12px;
+  cursor: pointer;
+  flex-grow: 1;
+  margin: 2px ;
+  font-size: 16px;
+  width: 10px;
+}
+
+.selected {
+  background-color: white;
+}
+
+label {
+  display: block;
+  margin: 2px 0;
+  font-size: 16px;
+ 
+}
+
+select,
+input {
+  width: 100%;
+  padding: 3px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  
+}
+
+.card-title {
+  background: linear-gradient(45deg, #ff5722, #007bff);
+  color: transparent;
+}
+
+
+.form-control {
+  width: 100%;
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 2px 0;
+}
+
+
+.mat-option {
+  padding: 5px;
+  cursor: pointer;
+}
+
+
+.mat-option.mat-selected {
+  background-color: #007acc;
+  color: white;
+}
+
+.mat-option:hover {
+  background-color: #ddd;
+}
+
+
+.mat-autocomplete-panel {
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.formk {
+  border-radius: 10px;
+  width: 40%;
+  
+  padding: 2px;
+  position: relative;
+  z-index: 1;
+  background-color: white;
+}
+
+.background-white {
+  background-color: white;
+}
+
+.tab-container {
+  display: flex; 
+  padding: 2px;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+  padding: 2px; 
+  border: 1px solid rgb(199, 197, 197);
+}
+
+.tab:hover {
+  background-color: #2B2E4A;
+  color: white;
+}
+/* styles.css or your component's CSS file */
+#hours, #minutes {
+  display: none;
+}
+
+
+.popup-card {
+  margin-left: -100px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px; /* Adjust the gap between items as needed */
+  padding: 10px;
+  
+}
+
+.time-picker{
+  position: relative;
+}
+
+.time-picker.actve .popup-card{
+  display: block;
+}
+
+
+.text-primary{
+  color: #f77d0A !important;
+}
+
+.btn-primary{
+  background-color: #f77d0A  !important;
+  border-radius: 12px  !important;
+  border: none  !important;
+  
+}
+
+
+.bg-primary{
+  background-color: #f77d0A !important;
+}
+
+.img-fluid{
+  height: 233px;
+  width: 280px;
+}
+
+
+.space{
+  margin-top: 10px !important;
+}
+.fonts{
+  font-size: 30px;
+}
+.custm {
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+/* Responsive styles for screens 968 pixels and below */
+@media (max-width: 968px) {
+  .custm {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+}
+
+
+
+
+
+.testimonials {
+  padding: 20px; /* Add padding as needed */
+  margin: 0 auto; /* Center the container */
+  max-width: 100%; /* Set a maximum width for the container */
+}
+
+.carousel-inner img {
+  width: 200px; /* Make images fill the container */
+  height: auto; /* Maintain image aspect ratio */
+}
+
+.carousel-item {
+  text-align: center; /* Center text in carousel items */
+}
+
+.carousel-item h4,
+.carousel-item p {
+  margin: 15px; /* Add margin to text for better spacing */
+}
+
+@media (max-width: 768px) {
+  /* Adjust styles for smaller screens */
+  .carousel-inner {
+      width: 100%; /* Full width for smaller screens */
+  }
+
+  
+}
+
+
+
+ @keyframes moveLeftToRight {
+  0% {
+    transform: translateX(-100%);
+}
+50% {
+    transform: translateX(10%);
+}
+
+}
+
+.animated-div {
+  animation: moveLeftToRight 10s linear infinite;
+  
+} 
+
+
+
+@keyframes blink { 
+  0%, 100% { color: rgb(247, 5, 5); } /* Red */
+  25% { color: #F77D0A; } /* Orange */
+  50% { color: #3498db; } /* Blue */
+  75% { color: #e91e63; } /* Pink */
+}
+
+.blink {
+  animation: blink 1s infinite; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,110 @@
+<footer>
+    <div class="container-fluid secondary py-5 px-sm-3 px-md-5" style="margin-top: 10px;">
+        <div class="row pt-5">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-5">
+                <form [formGroup]="form" (submit)="send()">
+                    <div class="contact-form bg-light mb-4" style="padding: 16px;">
+                        <div class="row">
+                            <h3 class="display-1 text-uppercase text-center">For More Enquiry</h3>
+                            <div class="col-6 form-group">
+                                <input type="text" class="form-control p-4" placeholder="Name"
+                                    formControlName="from_name" required="required">
+                            </div>
+                            <div class="col-6 form-group">
+                                <input type="email" class="form-control p-4" placeholder="Email" required="required"
+                                    formControlName="from_email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control p-4" placeholder="Mobile No."
+                                formControlName="phoneno" required="required">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control py-2 px-4" rows="3" placeholder="Message" required="required"
+                                formControlName="message"></textarea>
+                        </div>
+
+                        <div>
+                            <button class="btn btn-primary py-2 px-4" type="submit" style="color: rgb(3,3,36);"> <i
+                                    class="fa fa-envelope flex-shrink-0 mr-3"></i>Send Message</button>
+                        </div>
+
+
+
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-lg-1 col-md-6 mb-5"></div>
+            <div class="col-lg-2 col-md-6 mb-5" >
+                <h4 class="text-uppercase text-light mb-4 golden" golden>Usefull Links</h4><br>
+                <div class="d-flex flex-column">
+                    <a class="text-white mb-2" routerLink="/policy"><i
+                            class="fa fa-angle-right text-white mr-2 golden"></i>Private Policy</a>
+                    <a class="text-white mb-2" routerLink="/terms">
+                        <i class="fa fa-angle-right text-white mr-2 golden"></i>Term & Conditions</a>
+                    <a class="text-white mb-2" routerLink="/signup">
+                        <i class="fa fa-angle-right text-white mr-2 golden"></i>New Member Registration</a>
+
+                    <a class="text-white mb-2" routerLink="/refund">
+                        <i class="fa fa-angle-right text-white mr-2 golden"></i>Payment & Refund</a>
+                    <a class="text-white" routerLink="/faq">
+                        <i class="fa fa-angle-right text-white mr-2 golden"></i>Help & FQAs</a>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4  class="text-uppercase text-light mb-4 golden">Get In Touch</h4><br>
+                <p class="text-white  mb-2">S17 Aditya Mall, Aditya
+                    City Center, Indirapuram, Ghaziabad(UP)</p>
+                <p class="text-white mb-2"><i class="fa  fa-phone text-white mr-3 golden"></i>+91 8800003301  <br>
+                    <a style="margin-left: 25px;"></a>+91 8800003302</p>
+                <p class="text-white  mb-2" ><i class="fa  fa-envelope text-white mr-3 golden"></i><a
+                        href="mailto:info@primerides.in" style="color: rgb(255, 255, 255); ">info&#64;primerides.in</a>
+                </p>
+
+
+                     <br><br><br> <br><br><br>
+                <h4 class="text-uppercase text-light mb-4 golden">Follow Us</h4>
+                <p class="text-white mb-2">
+                </p>
+                <div class="d-flex justify-content-start">
+                    <div class="d-flex justify-content-start">
+                        <a class="btn  btn-light  mr-2"  target="_blank">
+                            <img class="image5" src="assets/image/new_twiter-removebg-preview copy.png" alt="">
+                        </a>
+
+                        <a class="btn  btn-light  mr-2" target="_blank"
+                            href="https://www.facebook.com/profile.php?id=100091755203708">
+                            <i class="fab fa-2x fa-facebook-f" style="color: #1b4bb3;"></i>
+                            </a>
+
+                        <a class="btn  btn-light  mr-2" target="_blank">
+                            <i class="fab fa-2x fa-linkedin-in" style="color: #0077b5;"></i>
+                        </a>
+
+                        <a class="btn  btn-light  mr-2" target="_blank"
+                            href="https://www.instagram.com/_prime__rides/">
+                            <i class="fab fa-2x fa-instagram" style="color: #e4405f;"></i>
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="w-100 mb-3">
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-primary py-4 px-sm-3 px-md-5"
+        style="display: flex; justify-content: space-between; align-items: center;">
+        <div>&copy; 2023 <a style="color:black; font-weight: 700;"
+                routerLink="https://www.primerides.in">Primerides</a>. All Rights Reserved</div>
+        <div>Designed by <a style="color:black; font-weight: 700;" href="https://www.innoblooms.com">Innoblooms Info
+                Services Pvt Ltd</a></div>
+    </div>
+
+</footer>

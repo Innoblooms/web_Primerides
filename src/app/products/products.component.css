@@ -1,0 +1,771 @@
+.filter {
+    margin-bottom: 20px;
+}
+
+.car-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.car {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 100%;
+    border: 1px solid #ccc;
+}
+
+/* Responsive styles for medium screens */
+@media (min-width: 576px) {
+    .car {
+        min-width: calc(50% - 8px);
+        /* Two cars per row with some gap */
+    }
+}
+
+/* Responsive styles for large screens */
+@media (min-width: 768px) {
+    .car {
+        min-width: calc(33.3333% - 8px);
+        /* Three cars per row with some gap */
+    }
+}
+
+.tab-container {
+    display: flex;
+
+}
+
+.tab {
+    flex: 1;
+    text-align: center;
+    cursor: pointer;
+    padding: 2px;
+}
+
+.car h2 {
+    font-size: 15px;
+    margin: 0;
+}
+
+.car img {
+    height: 100px;
+    margin: 5px 0;
+}
+
+.car-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+
+.car .car-details p {
+    font-size: 14px;
+    margin: 0 10px;
+}
+
+.car .car-rate {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 2px 0;
+}
+
+.car .car-rate p {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.car .car-rate button {
+    background-color: #F77D0A;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.car .car-rate button:hover {
+    background-color: #585857;
+    color: black;
+}
+
+
+.btn-grey:hover {
+    background-color: #585857;
+    color: black;
+}
+
+.btn-grey:active {
+    background-color: #585857;
+    color: black;
+}
+
+/* Responsive styles for small screens */
+@media (max-width: 576px) {
+
+    .car .car-rate button {
+        font-size: 12px;
+    }
+
+
+}
+
+
+
+.gap {
+    height: 20px;
+}
+
+
+
+.filter-icon {
+    margin-right: 10px;
+}
+
+span{
+    font-weight: 600;   
+}
+
+
+@media only screen and (min-width: 720px) {
+    .container-fluid{
+       margin-top: -60px;
+    }
+   }
+
+.bold-label {
+    font-weight: 600;
+    display: block;
+    color: black;
+}
+
+
+.asterisk-text {
+    color: red;
+}
+
+
+
+.sold-out {
+    font-size: 20px;
+    font-weight: 900;
+    color: red;
+
+}
+
+.popup-card {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    padding: 10px;
+    font-size: 12px;
+}
+
+.time-picker {
+    position: relative;
+}
+
+.time-picker.actve .popup-card {
+    display: block;
+}
+
+
+
+/* Default styles for search-container */
+.search-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border: 1px solid gray;
+}
+
+.input-group-text {
+    background-color: transparent;
+    border: none;
+}
+
+/* Responsive styles for small screens */
+@media (max-width: 576px) {
+    .search-container {
+        flex-direction: column;
+        /* Stack elements vertically for small screens */
+        align-items: stretch;
+        /* Stretch items to full width */
+    }
+
+    .search-container>div {
+        margin-bottom: 10px;
+        /* Add space between elements */
+    }
+}
+
+/* Responsive styles for medium screens */
+@media (min-width: 577px) and (max-width: 991px) {
+    .search-container>div {
+        flex: 1;
+        /* Make each column take equal width */
+        margin-right: 5px;
+        /* Add space between columns */
+    }
+}
+
+/* Responsive styles for large screens */
+
+
+
+.clear {
+    display: flex;
+    justify-content: space-between;
+    /* Align items to the left and right */
+    margin: 10px;
+    /* Add some margin for separation */
+}
+
+
+
+.mobile-filters-popup {
+    background: #fff;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.filtersa {
+    margin-bottom: 10px;
+   
+}
+
+
+
+.seating-options,
+.fuel-checkboxes,
+.brand-type-checkboxes,
+.segment-type-checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.filter-option {
+    margin-right: 25px;
+    margin-bottom: 10px;
+
+}
+
+.filter-option input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.text-primary {
+    color: #F77D0A !important;
+}
+
+.btn-primary {
+    background-color: #F77D0A !important;
+    border-radius: 12px !important;
+    border: none !important;
+    font-weight: 700 !important;
+}
+
+
+
+.bg-primary {
+    background-color: #F77D0A !important;
+}
+
+
+@media (min-width: 120px) and (max-width: 1400px) {
+    .car {
+        min-width: calc(33.3333% - 8px);
+        /* Three cars per row with some gap */
+    }
+}
+
+@media (min-width: 920px) and (max-width: 1200px) {
+    .car {
+        min-width: calc(50.3333% - 8px);
+        /* Three cars per row with some gap */
+    }
+}
+
+@media (min-width: 520px) and (max-width: 920px) {
+    .car {
+        min-width: calc(50.3333% - 8px);
+        /* Three cars per row with some gap */
+    }
+}
+
+@media (min-width: 200px) and (max-width: 800px) {
+    .car {
+        min-width: calc(100% - 8px);
+        /* Three cars per row with some gap */
+    }
+}
+
+
+
+.container1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid gray;
+    border-radius: 20px;
+    /* Reduced border-radius */
+    padding: 5px 10px;
+    /* Reduced padding */
+    background-color: rgb(41, 41, 41);
+    font-size: 12px;
+}
+
+.btn-grey {
+    background-color: rgb(41, 41, 41);
+    color: #fcfdff;
+    display: inline-block;
+    padding: 6px 12px;
+    /* Reduced padding */
+    cursor: pointer;
+    border: none;
+    border-radius: 15px;
+    /* Reduced border-radius */
+    margin: 0;
+    /* Remove margin */
+}
+
+.btn-grey.clicked {
+    background-color: #dd9b2a;
+    color: #fff;
+}
+
+/* Hide radio button bullet */
+.btn-grey input {
+    display: none;
+}
+
+/* Mobile Styles */
+@media only screen and (max-width: 767px) {
+    .container1 {
+        padding: 5px;
+        /* Adjusted padding for smaller screens */
+    }
+
+    .btn-grey {
+        width: 100%;
+        margin-bottom: 5px;
+        /* Adjusted margin for smaller screens */
+    }
+}
+
+
+
+input[type="checkbox"], input[type="radio"]{
+    cursor: pointer !important;
+}
+
+
+
+
+
+
+
+
+/* Responsive styles for tablets (550px to 1200px) */
+@media (min-width: 768px) and (max-width: 1200px) {
+    /* Adjust the layout as needed */
+
+    .col-x2-2,
+    .col-xl-2,
+    .col-lg-2,
+    .col-md-6,
+    .col-md-4,
+    .col-xl-1,
+    .col-lg-2,
+    .col-md-4,
+    .col-xl-1,
+    .col-xl-2,
+    .col-lg-2,
+    .col-md-4,
+    .col-xl-2,
+    .col-lg-2,
+    .col-md-4,
+    .col-xl-2,
+    .col-lg-2,
+    .col-md-4,
+    .col-xl-1,
+    .col-lg-1,
+    .col-md-4,
+    .col-xl-3,
+    .col-lg-2,
+    .col-md-4,
+    .col-xl-2,
+    .col-lg-2,
+    .col-md-10,
+    .col-xl-2,
+    .col-lg-2,
+    .col-md-3,
+    .col-xl-2,
+    .col-lg-2,
+    .col-md-3,
+    .col-xl-2,
+    .col-lg-2,
+    .col-md-3,
+    .col-xl-2,
+    .col-lg-2,
+    .col-md-3,
+    .col-xl-1,
+    .col-lg-1,
+    .col-md-3,
+    .col-xl-4,
+    .col-lg-5,
+    .col-xl-1,
+    .col-lg-1,
+    .col-xl-2,
+    .col-sm-12,
+    .col-xl-2,
+    .col-lg-2,
+    .col-sm-6,
+    .col-xs-6,
+    .col-xl-2,
+    .col-lg-2,
+    .col-sm-3,
+    .col-xs-4,
+    .col-xl-2,
+    .col-lg-2,
+    .col-sm-3,
+    .col-xs-4,
+    .col-xl-2,
+    .col-lg-2,
+    .col-sm-3,
+    .col-xs-4,
+    .col-xl-2,
+    .col-lg-2,
+    .col-sm-3,
+    .col-xs-4 {
+        /* Update styles for these specific classes based on your layout requirements */
+        width: 100%;
+        margin-bottom: 10px;
+        /* Add space between elements */
+    }
+
+    .container1 {
+        padding: 5px;
+        /* Adjusted padding for smaller screens */
+    }
+
+    .btn-grey {
+        width: 20% !important;
+        margin-bottom: 5px;
+        font-size: 18px;
+        /* Adjusted margin for smaller screens */
+    }
+
+    .car {
+        /* Adjustments for the car class */
+        min-width: calc(50% - 8px);
+    }
+
+    .tab-container {
+        /* Adjustments for the tab-container */
+        flex-wrap: wrap;
+    }
+
+    .mobile-filters,
+    .mobile-filters-popup {
+        /* Adjustments for mobile filters */
+        width: 100%;
+    }
+
+    .button-group {
+        /* Adjustments for button-group */
+        flex-wrap: wrap;
+    }
+
+    .button-group label {
+        /* Adjustments for button-group label */
+        width: 100%;
+    }
+
+    .fflex {
+        display: flex;
+        justify-content: space-between;
+        display: none;
+    }
+
+    .filtersa {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    /* Add any other specific styles for tablets */
+    .filters-visible {
+        display: block !important;
+        /* Add !important to override other styles if needed */
+    }
+
+    .transmission-checkboxes {
+        display: flex !important;
+      margin-right: 30px;
+      flex-wrap: wrap;
+    }
+
+    .fuel-type-checkboxes {
+        display: flex !important;
+      margin-right: 30px;
+      flex-wrap: wrap;
+    }
+
+    .segment-checkboxes {
+        display: flex !important;
+      margin-right: 30px;
+      flex-wrap: wrap;
+    }
+    .checkbox-label {
+        display: flex !important;
+      margin-right: 30px;
+      flex-wrap: wrap;
+    }
+    .seating-capacity-checkboxes{
+        display: flex !important;
+      margin-right: 30px;
+      flex-wrap: wrap;
+    }
+    .brand-checkboxes{
+        display: flex !important;
+      margin-right: 30px;
+      flex-wrap: wrap;
+     
+    }
+    .space1{
+        margin-top: 10px;
+        width: 150px;
+        text-align: center;
+    }
+   
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsive styles for screens between 576px and 768px */
+@media (min-width: 576px) and (max-width: 767px) {
+
+    .col-x2-2,
+    .col-xl-2,
+    .col-lg-2,
+    .col-md-6,
+    .col-md-4,
+    .col-xl-1,
+    .col-lg-2,
+    .col-md-4,
+    .col-xl-1,
+    .col-xl-2,
+    .col-lg-2,
+    .col-md-4,
+    .col-xl-2,
+    .col-lg-2,
+    .col-md-4,
+    .col-xl-2,
+    .col-lg-2,
+    .col-md-4,
+    .col-xl-1,
+    .col-lg-1,
+    .col-md-4,
+    .col-xl-3,
+    .col-lg-2,
+    .col-md-4,
+    .col-xl-2,
+    .col-lg-2,
+    .col-md-10,
+    .col-xl-2,
+    .col-lg-2,
+    .col-md-3,
+    .col-xl-2,
+    .col-lg-2,
+    .col-md-3,
+    .col-xl-2,
+    .col-lg-2,
+    .col-md-3,
+    .col-xl-2,
+    .col-lg-2,
+    .col-md-3,
+    .col-xl-1,
+    .col-lg-1,
+    .col-md-3,
+    .col-xl-4,
+    .col-lg-5,
+    .col-xl-1,
+    .col-lg-1,
+    .col-xl-2,
+    .col-sm-12,
+    .col-xl-2,
+    .col-lg-2,
+    .col-sm-6,
+    .col-xs-6,
+    .col-xl-2,
+    .col-lg-2,
+    .col-sm-3,
+    .col-xs-4,
+    .col-xl-2,
+    .col-lg-2,
+    .col-sm-3,
+    .col-xs-4,
+    .col-xl-2,
+    .col-lg-2,
+    .col-sm-3,
+    .col-xs-4,
+    .col-xl-2,
+    .col-lg-2,
+    .col-sm-3,
+    .col-xs-4 {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .container1 {
+        padding: 5px;
+    }
+
+    .btn-grey {
+        width: 20% !important;
+        margin-bottom: 5px;
+        font-size: 18px;
+    }
+
+    .car {
+        min-width: calc(100% - 8px);
+    }
+
+    .tab-container,
+    .button-group,
+    .mobile-filters,
+    .mobile-filters-popup {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .button-group label {
+        width: 100%;
+    }
+
+    .fflex {
+        display: flex;
+        justify-content: space-between;
+        display: none;
+
+    }
+
+    .filtersa {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    /* Add any other specific styles for this screen width range */
+    .filters-visible {
+        display: block !important;
+        /* Add !important to override other styles if needed */
+    }
+
+    .transmission-checkboxes {
+        display: flex !important;
+       margin-right: 10px;
+       flex-wrap: wrap;
+    }
+
+    .fuel-type-checkboxes {
+        display: flex !important;
+       margin-right: 10px;
+       flex-wrap: wrap;
+    }
+
+    .segment-checkboxes {
+        display: flex !important;
+       margin-right: 10px;
+       flex-wrap: wrap;
+    }
+    .checkbox-label {
+        display: flex !important;
+       margin-right: 10px;
+       flex-wrap: wrap;
+    }
+    .seating-capacity-checkboxes{
+        display: flex !important;
+       margin-right: 10px;
+       flex-wrap: wrap;
+    }
+    .brand-checkboxes{
+        display: flex !important;
+       margin-right: 10px;
+       flex-wrap: wrap;
+       
+    }
+    .space1{
+        margin-top: 10px;
+        width: 150px;
+        text-align: center;
+    }
+}
+
+
+/* filter-popup.component.css */
+
+/* Style for the button */
+button {
+   
+    color: black;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+   background-color: transparent
+   ;
+  
+
+}
+
+/* Add this CSS to position the popup */
+.popup {
+    position: fixed;
+    height: 100%;
+    left: 0;
+    width: 100%;
+    top: 0;
+    background-color: white;
+    z-index: 1000;
+    overflow: auto; /* or overflow: scroll; */
+    /* Add other styles as needed */
+}
+
+.custom-close {
+    float: left;
+    margin-top: 60px;
+
+    margin-bottom: 30px;
+    cursor: pointer; /* Optional: Add a pointer cursor for better usability */
+}
+.card.dropdown-menu {
+    margin-top: -50px;
+    margin-left: -10px;
+    width: auto; /* Set the width as needed */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    padding: 10PX;
+  }
+  

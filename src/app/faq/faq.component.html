@@ -1,0 +1,449 @@
+<!-- FAQ Start -->
+<div class="container-fluid py-5">
+  <div class="container pt-4 pb-3">
+    <h1 class="display-1 text-primary text-center"><i class="fa fa-2x fa-solid fa-biohazard"></i></h1>
+    <h1 class="display-8 text-uppercase text-center mb-5">FREQUENTLY <span class="text-primary"> ASKED QUESTIONS </span></h1>
+    <div class="row justify-content-center">
+      <div class="col-lg-12 text-center">
+          <img class="w-75 mb-2" src="assets/image/about.png" alt="">
+          <p>Prime Rides is a self drive car rental service that provides you with all the privacy, fun and convenience of your own car, without the hassles of owning and maintaining one.
+
+              We drop and pick-up cars from your doorstep, so that you can spend time on the more important things. The doorstep drop and pick-up of cars is our standard way of serving you, and is available throughout the areas served by us.
+              
+              Rent our cars on short-term basis; daily, weekly, fortnightly or subscribe to it on monthly basis .</p>
+      </div>
+       <div class="col-md-4" >
+          <h2 class="text-primary">Prime Rides self-drive cars offer:-</h2>
+          <ul style="list-style-type: none;">
+            <li><i class="fa fa-solid fa-asterisk text-primary">‌</i>  Unbeatable Rates.</li>
+            <li><i class="fa fa-solid fa-asterisk text-primary">‌</i>  Easy & Quick Online Booking.</li>
+            <li><i class="fa fa-solid fa-asterisk text-primary">‌</i>  Clean & Well-Maintained Fleet.</li>
+            <li><i class="fa fa-solid fa-asterisk text-primary">‌</i>  Unlimited Kilometers.</li>
+            <li><i class="fa fa-solid fa-asterisk text-primary">‌</i>  Privacy & Freedom.</li>
+            <li><i class="fa fa-solid fa-asterisk text-primary">‌</i>  Anywhere Delivery in NCR.</li>
+          </ul>
+        </div>
+  </div>
+
+      <div class="row justify-content-center">        
+       
+      </div>
+  
+
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="card border mb-3">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h3 class="text-primary" (click)="toggleAnswer(1)">
+              AM I ELIGIBLE TO USE PRIME RIDES SERVICES?
+            </h3>
+            <i class="fas" [ngClass]="showAnswer[1] ? 'fa-chevron-up' : 'fa-chevron-down'" style="cursor: pointer"
+              (click)="toggleAnswer(1)"></i>
+          </div>
+          <div class="card-body" [hidden]="!showAnswer[1]">
+            <p>
+              To avail Prime Rides services, you must be at least 21 years old,
+              and you should hold valid driving license for Light Motor
+              Vehicles.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="card border mb-3">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h3 class="text-primary" (click)="toggleAnswer(2)">
+              WHICH ARE THE AREAS WHERE I CAN AVAIL PRIME RIDES SERVICES?
+            </h3>
+            <i class="fas" [ngClass]="showAnswer[2] ? 'fa-chevron-up' : 'fa-chevron-down'" style="cursor: pointer"
+              (click)="toggleAnswer(2)"></i>
+          </div>
+          <div class="card-body" [hidden]="!showAnswer[2]">
+            <p>
+              Delhi NCR : We are covering Delhi, Gurgaon, Faridabad, Noida &
+              Ghaziabad.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="card border mb-3">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h3 class="text-primary" (click)="toggleAnswer(3)">
+              ARE THERE ANY RESTRICTED PLACES FOR TRAVEL?
+            </h3>
+            <i class="fas" [ngClass]="showAnswer[3] ? 'fa-chevron-up' : 'fa-chevron-down'" style="cursor: pointer"
+              (click)="toggleAnswer(3)"></i>
+          </div>
+          <div class="card-body" [hidden]="!showAnswer[3]">
+            <p>
+              You can drive our cars entire India however we do not permit
+              taking Prime Rides vehicles to Leh/Ladakh region, Kaza/Nako region
+              and spit valley. We also advise you to avoid bad terrains
+              (especially in non- SUV cars) and areas restricted by local bodies
+              and goverment.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="card border mb-3">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h3 class="text-primary" (click)="toggleAnswer(4)">
+              DO I HAVE TO BRING THE CAR BACK TO THE SAME LOCATION?
+            </h3>
+            <i class="fas" [ngClass]="showAnswer[4] ? 'fa-chevron-up' : 'fa-chevron-down'" style="cursor: pointer"
+              (click)="toggleAnswer(4)"></i>
+          </div>
+          <div class="card-body" [hidden]="!showAnswer[4]">
+            <p>
+              You can choose multiple locations across Delhi NCR for pick up and
+              delivery. Standard charges will be applied according to distance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="card border mb-3">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h3 class="text-primary" (click)="toggleAnswer(5)">
+              CAN I BOOK A ONE-WAY TRIP WITH PRIME RIDES?
+            </h3>
+            <i class="fas" [ngClass]="showAnswer[5] ? 'fa-chevron-up' : 'fa-chevron-down'" style="cursor: pointer"
+              (click)="toggleAnswer(5)"></i>
+          </div>
+          <div class="card-body" [hidden]="!showAnswer[5]">
+            <p>Currently this facility in not available.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="card border mb-3">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h3 class="text-primary" (click)="toggleAnswer(6)">
+              CAN I BOOK FOR ANY DURATION OF TIME?
+            </h3>
+            <i class="fas" [ngClass]="showAnswer[6] ? 'fa-chevron-up' : 'fa-chevron-down'" style="cursor: pointer"
+              (click)="toggleAnswer(6)"></i>
+          </div>
+          <div class="card-body" [hidden]="!showAnswer[6]">
+            <p>
+              For rentals, the minimum booking duration is 12 hours, and the
+              maximum is up to 180 days.<br />
+
+              If you need a car for longer period of time, please try Prime
+              Rides subscriptions, wherein you can subscribe to a car for
+              minimum of 1 month and maximum of 36 months.<br />
+              Check out <a href="www.primerides.in">website</a> for more
+              details.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="card border mb-3">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h3 class="text-primary" (click)="toggleAnswer(7)">
+              IS PEAK SEASON? ARE THE PRICES DIFFERENT DURING PEAK SEASON?
+            </h3>
+            <i class="fas" [ngClass]="showAnswer[7] ? 'fa-chevron-up' : 'fa-chevron-down'" style="cursor: pointer"
+              (click)="toggleAnswer(7)"></i>
+          </div>
+          <div class="card-body" [hidden]="!showAnswer[7]">
+            <p>
+              Peak season refers to festive periods of very high demand.<br />
+              Our hourly rental tariffs are different for weekdays (Mon-Fri),
+              weekends (Sat-Sun) and the Peak Season. <br />
+              The dates and prices for the Peak Season are dynamically decided
+              based on the demand.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="card border mb-3">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h3 class="text-primary" (click)="toggleAnswer(8)">
+              WHAT KIND OF CARS CAN I CHOOSE FROM?
+            </h3>
+            <i class="fas" [ngClass]="showAnswer[8] ? 'fa-chevron-up' : 'fa-chevron-down'" style="cursor: pointer"
+              (click)="toggleAnswer(8)"></i>
+          </div>
+          <div class="card-body" [hidden]="!showAnswer[8]">
+            <p [hidden]="!showAnswer[8]">
+              We have a curated selection of cars, which includes various models
+              across segments such as SUVs, ultra-luxury cars, hatchbacks and
+              sedans. We are constantly increasing our fleet; so keep a close
+              watch for your favourite car, just in case we don’t have it
+              already.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="card border mb-3">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h3 class="text-primary" (click)="toggleAnswer(9)">
+              IS PRIME RIDES 24/7 AVAILABLE?
+            </h3>
+            <i class="fas" [ngClass]="showAnswer[9] ? 'fa-chevron-up' : 'fa-chevron-down'" style="cursor: pointer"
+              (click)="toggleAnswer(9)"></i>
+          </div>
+          <div class="card-body" [hidden]="!showAnswer[9]">
+            <p [hidden]="!showAnswer[9]">
+              Yes, we are accessible 24x7. You can book the car anytime from
+              anywhere.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="card border mb-3">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h3 class="text-primary" (click)="toggleAnswer(10)">
+              CAN I TAKE A PET ALONG WITH ME?
+            </h3>
+            <i class="fas" [ngClass]="showAnswer[10] ? 'fa-chevron-up' : 'fa-chevron-down'" style="cursor: pointer"
+              (click)="toggleAnswer(10)"></i>
+          </div>
+          <div class="card-body" [hidden]="!showAnswer[10]">
+            <p [hidden]="!showAnswer[10]">
+              While we love pets, some of our customers might be allergic to
+              them so we can’t allow pets in cars.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="card border mb-3">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h3 class="text-primary" (click)="toggleAnswer(11)">
+              IS THERE ANY SPEED LIMIT?
+            </h3>
+            <i class="fas" [ngClass]="showAnswer[11] ? 'fa-chevron-up' : 'fa-chevron-down'" style="cursor: pointer"
+              (click)="toggleAnswer(11)"></i>
+          </div>
+          <div class="card-body" [hidden]="!showAnswer[11]">
+            <p [hidden]="!showAnswer[11]">
+              120 Kms/Hr is the speed limit. Exceeding it will attract a penalty
+              for over-speeding is first attempt 5000 and 10000 for each breach.
+              In some area (e.g., Central Delhi, Lutyens, Cannaught place,
+              Airport etc), restricted to the speed of 30-60Kms/Hr. This is as
+              per government directives.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="card border mb-3">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h3 class="text-primary" (click)="toggleAnswer(12)">
+              IN THE EVENT OF AN ACCIDENT OR DAMAGE TO THE VEHICLE, WHAT IS MY
+              MAXIMUM LIABILITY?
+            </h3>
+            <i class="fas" [ngClass]="showAnswer[12] ? 'fa-chevron-up' : 'fa-chevron-down'" style="cursor: pointer"
+              (click)="toggleAnswer(12)"></i>
+          </div>
+          <div class="card-body" [hidden]="!showAnswer[12]">
+            <ol [hidden]="!showAnswer[12]">
+              <li>
+                In the event of damages, Your liability is limited to a maximum
+                of <b>Rs 100000.</b>
+                <br />
+                You will need to pay Damage Fee equivalent to the repair cost
+                (as estimated by an authorized dealership) and downtime losses,
+                upto a maximum of <b>Rs 100000.</b><br />
+                This is independent of the nature and terms of the insurance
+                cover that has on the cars.
+              </li>
+
+              <li>
+                Please note that the maximum liability policy is intended to
+                benefit and protect the responsible user. In situations of
+                irresponsible or unsafe or negligent driving, there could be
+                discretionary exceptions to this policy, whereby the user could
+                be liable for all damages irrespective of whether or not Prime
+                Rides is able to claim insurance in such cases. Examples of such
+                situation include,<br />
+                <b>But are not limited to:-</b>
+
+                <ul>
+                  <li>
+                    When the User is not in compliance with the laws and/or with
+                    terms of the Prime Rides User Agreement
+                  </li>
+                  <li>
+                    When the User is found to be under the influence of
+                    alcohol/narcotics while driving
+                  </li>
+                  <li>
+                    When the User is over-speeding (i.e. above prescribed speed
+                    limit of road or 120 Kms/Hr, whichever is lower)
+                  </li>
+                  <li>
+                    When the User is in violation of traffic rules or of the
+                    Motor Vehicles Act (for example, if the User has not paid
+                    the inter-state tax while crossing a state border)
+                  </li>
+                  <li>
+                    When the person driving the vehicle at the time of the
+                    incident is found to be different than the one who made the
+                    booking
+                  </li>
+                  <li>
+                    When the vehicle workshop and/or insurance company deem the
+                    damage to be consequential in nature (this will be clearly
+                    stated in the accident report). Consequential damage occurs
+                    when the User continues driving the vehicle even when it is
+                    performing abnormally
+                  </li>
+                  <li>
+                    When the number of people in the car at the time of the
+                    incident exceed the standard seating capacity of the car
+                  </li>
+                  <li>
+                    When the incident happened in a state for which the user had
+                    failed to pay the inter-state tax while entering the state
+                  </li>
+                  <li>
+                    When there is misrepresentation of information in the
+                    driving license and ID proof details shared by the user
+                  </li>
+                  <li>
+                    Where there is clear evidence of extremely rash and
+                    negligent driving on the user’s part
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                In cases where the estimated damage charges exceed the security
+                deposit, we will request the user to pay the same at the time of
+                returning the car.<br />
+                In cases of non-payment, Prime Rides reserves the right of legal
+                action, reporting to credit bureau and reporting to other
+                authorities or persons, irrespective of their direct relevance
+                to the case.
+              </li>
+
+              <li>
+                In cases of accident, fare for the unused hours will not be
+                refunded.
+              </li>
+
+              <li>
+                Prime Rides typically avoids charging for very minor damages
+                (e.g., minor scratches and dents), and covers the vast majority
+                of damage incidents under the maximum liability policy.
+              </li>
+
+              <li>
+                In cases of collision or User failure, towing and impounding
+                charges will be paid by the User. In cases of vehicle failure,
+                towing and impounding charges will be paid by us.
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <h1 class="gap"></h1>
+    <div class="row bg-banner mt-3">
+        <h1 class="gap"></h1>
+        <h1 class="text-uppercase text-center text-primary">How Prime Rides Work</h1>
+        <div class="col-lg-3 mb-2">
+            <div class="d-flex align-items-center bg-light p-4 mb-4" style="height: 150px;">
+                <div class="d-flex align-items-center justify-content-center flex-shrink-0  ml-n4 mr-4"
+                    style="width: 100px; height: 100px;">
+                    <img style="width: 100px; height: 100px;" src="assets/image/rentcar.jpg" alt="">
+                </div>
+                <p>
+                    <b>Car Selection</b><br>
+                    Just select your Duration, Location and Car. All on the site! It's all super easy.
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-3 mb-2">
+            <div class="d-flex align-items-center bg-light p-4 mb-4" style="height: 150px;">
+                <div class="d-flex align-items-center justify-content-center flex-shrink-0  ml-n4 mr-4"
+                    style="width: 100px; height: 100px;">
+                    <img style="width: 100px; height: 100px;" src="assets/image/delivery.jpg" alt="">
+                </div>
+                <p>
+                    <b>Delivery</b><br>
+
+                    We deliver your reserved car to your doorstep across Delhi-NCR.
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-3 mb-2">
+            <div class="d-flex align-items-center bg-light p-4 mb-4" style="height: 150px;">
+                <div class="d-flex align-items-center justify-content-center flex-shrink-0  ml-n4 mr-4"
+                    style="width: 100px; height: 100px;">
+                    <img style="width: 100px; height: 100px;" src="assets/image/i20.jpg" alt="">
+                </div>
+                <p>
+                    <b>Drive Any where</b><br>
+                    Experience the freedom of self-drive with your reserved car, exploring any destination across
+                    India.
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-3 mb-2">
+            <div class="d-flex align-items-center bg-light p-4 mb-4" style="height: 150px;">
+                <div class="d-flex align-items-center justify-content-center flex-shrink-0 ml-n4 mr-4"
+                    style="width: 100px; height: 100px;">
+                    <img style="width: 100px; height: 100px;" src="assets/image/return.png" alt="">
+                </div>
+                <p>
+                    <b>Return Car</b><br>
+
+                    You can conveniently return the car at our designated location upon completing your trip.
+                </p>
+            </div>
+        </div>
+    </div>
+   
+  </div>
+
+ 
+
+  <!-- FAQ End -->
+</div>

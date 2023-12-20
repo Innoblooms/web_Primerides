@@ -1,0 +1,19 @@
+<br />
+<br />
+<br />
+
+
+
+<form method="POST" name="servePayment" action="https://carbackend.primerides.in/ccavRequestHandler">
+  <input type="hidden" name="merchant_id" value="{{merchant_id}}" />
+  <input type="hidden" name="order_id" value="{{order_no}}" />
+  <input type="hidden" name="currency" value="{{currency}}" />
+  Amount
+  <input type="text" name="amount" value="{{testAmount}}" />
+  <input type="hidden" name="redirect_url" value="{{redirect_url}}" />
+  <input type="hidden" name="cancel_url" value="{{cancel_url}}" />
+  <button type="submit">Proceed</button>
+</form>
+<br />
+<br />
+<br />

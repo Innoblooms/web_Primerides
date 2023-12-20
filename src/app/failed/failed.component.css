@@ -1,0 +1,103 @@
+/* failed.component.css */
+
+.failure-icon {
+    color: #ff6347; /* Tomato color for failure */
+    border: 2px solid #ff6347; /* Red color border */
+    border-radius: 50%; /* Make it a circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px; /* Set the size of the circle */
+    height: 50px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.failure-icon:hover {
+    background-color: #ff6347; /* Change background color on hover for better visibility */
+    color: #fff;
+}
+
+.failure-content {
+    color: #ff6347; /* Red color for failure content */
+}
+
+.card-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+
+.card {
+    width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-header {
+    background-color: #ff6347; /* Red color for header background */
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+.failure-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.failure-logo i {
+    width: 50px; /* Adjust the size as needed */
+    height: 50px;
+}
+
+.card-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-footer {
+    background-color: #ecf0f1; /* Light gray color for footer background */
+    padding: 15px;
+    text-align: center;
+}
+
+.btn {
+    background-color: #ff6347; /* Red color for button background */
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #d23f3f; /* Darker red color on hover */
+}
+/* failed.component.css */
+
+.status-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.failure-icon {
+    color: #ff6347; /* Tomato color for failure */
+    border: 2px solid #ff6347; /* Red color border */
+    border-radius: 50%; /* Make it a circle */
+    width: 50px; /* Set the size of the circle */
+    height: 50px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+

@@ -1,0 +1,254 @@
+/* General styles */
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Car list styles */
+.car-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+}
+
+.car {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 100%;
+    border: 1px solid #ccc;
+}
+
+
+/* Car details styles */
+.car h2 {
+    font-size: 15px;
+    margin: 0;
+}
+
+.car img {
+    height: 100px;
+    margin: 5px 0;
+}
+
+.car-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+.car .car-details p {
+    font-size: 14px;
+    margin: 0 10px;
+}
+
+/* Car rate styles */
+.car .car-rate {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 2px 0;
+}
+
+.car .car-rate p {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.car .car-rate button {
+    background-color: #F77D0A;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Sold out styles */
+.sold-out {
+    font-size: 20px;
+    font-weight: 900;
+    color: red !important;
+    
+}
+
+/* Responsive styles for small screens */
+@media (max-width: 576px) {
+    .car .car-rate button {
+        font-size: 12px;
+        /* Decrease font size for small screens */
+    }
+}
+
+.car .car-rate button:hover {
+    background-color: #585857;
+}
+
+/* Filter options styles */
+.seating-options,
+.fuel-checkboxes,
+.brand-type-checkboxes,
+.segment-type-checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.filter-option {
+    margin-right: 25px;
+    margin-bottom: 10px;
+}
+
+.filter-option input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Text and button styles */
+.text-primary {
+    color: #F77D0A !important;
+}
+
+.btn-primary {
+    background-color: #908b86 !important;
+    border-radius: 12px !important;
+    border: none !important;
+    font-weight: 700 !important;
+}
+
+.bg-primary {
+    background-color: #F77D0A !important;
+}
+
+/* Tab container styles */
+.tab-container {
+    display: flex;
+    padding: 2px;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-fullscreen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.modal-content {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+}
+.car-rate{
+    font-size: 10px !important;
+}
+/* Responsive styles for medium screens (laptops) */
+@media (min-width: 1200px) {
+    .car {
+        min-width: calc(25% - 8px);
+        /* Three cars per row with some gap */
+    }
+    .car .car-details p {
+        font-size: 13px;
+        margin: 0 10px;
+    }
+    .car img {
+        height: 10vh;
+        margin: 5px 0;
+    }
+}
+
+
+
+/* Responsive styles for medium screens (laptops) */
+@media (min-width: 768px) and (max-width: 1000px) {
+    .car {
+        min-width: calc(49% - 8px);
+        /* Three cars per row with some gap */
+    }
+    .car .car-details p {
+        font-size: 14px;
+        margin: 0 10px;
+    }
+    .car img {
+        height: 9vh;
+        margin: 5px 0;
+    }
+}
+
+/* Responsive styles for larger screens (laptops) */
+@media (min-width: 1001px) and (max-width: 1200px) {
+    .car {
+        min-width: calc(33.3333% - 8px);
+        /* Four cars per row with some gap */
+    }
+    .car .car-details p {
+        font-size: 13px;
+        margin: 0 10px;
+    }
+    .car img {
+        height: 10vh;
+        margin: 5px 0;
+    }
+}
+
+/* Responsive styles for larger screens (laptops) */
+@media (min-width: 1201px) {
+    .car {
+        min-width: calc(25% - 8px);
+        /* Three cars per row with some gap */
+    }
+    .car .car-details p {
+        font-size: 13px;
+        margin: 0 10px;
+    }
+    .car img {
+        height: 10vh;
+        margin: 5px 0;
+    }
+}
+.form-control:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: gray; /* Set the desired color */
+}
+
+@media only screen and (min-width: 720px) {
+    .container-fluid{
+       margin-top: -60px;
+    }
+   }
+
+
+ /* Popup card styling */
+ .popup-card {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    padding: 10px;
+    font-size: 12px;
+  
+}
+.card.dropdown-menu {
+    margin-top: -50px;
+    margin-left: -10px;
+    width: auto; /* Set the width as needed */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    padding: 10PX;
+  }
+  

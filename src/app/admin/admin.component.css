@@ -1,0 +1,438 @@
+  /* Styles for the modal container */
+  .modal {
+    display: none; /* Start with modal hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background overlay */
+  }
+  
+  /* Styles for the full-screen modal */
+  .modal-fullscreen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  
+  /* Styles for the modal content */
+  .modal-content {
+    background-color: #fff; /* White background */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    width: 100%;
+  }
+
+
+
+  /* Sidebar styling */
+.sidebar {
+    height: 100%;
+     background-color: rgb(3,3,36);
+     color: #f2d371;
+     padding-top: 20px;
+     padding: 15px;
+  
+ }
+ 
+ .sidebar h4:hover {
+     color:  #fff ;
+     cursor: pointer;
+ }
+ 
+ 
+ /* Dropdown styling */
+ .dropdown {
+     position: relative;
+ }
+ 
+ .dropdown input[type="text"] {
+     cursor: pointer;
+ }
+ 
+ .dropdown-menu {
+     display: none;
+     position: absolute;
+     background-color: #fff;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+     z-index: 1000;
+     
+ }
+ 
+ /* Popup card styling */
+ .popup-card {
+     display: grid;
+     grid-template-columns: repeat(5, 1fr);
+     gap: 10px;
+     padding: 10px;
+     font-size: 12px;
+   
+ }
+ 
+ .cardse {
+     padding: 4px;
+     /* border: 1px solid #ccc; */
+     border-radius: 4px;
+     cursor: pointer;
+ }
+ 
+
+
+
+ .car-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.car {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 100%;   
+    border: 1px solid #ccc;
+   
+}
+
+
+
+.car h2 {
+    font-size: 15px;
+    margin: 0;
+}
+
+.car img {
+    height: 100px;
+    margin: 5px 0;
+}
+
+.car-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+
+.car .car-details p {
+    font-size: 14px;
+    margin: 0 10px;
+}
+
+.car .car-rate {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 2px 0;
+}
+
+.car .car-rate p {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.car .car-rate button {
+    background-color: #F77D0A;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.sold-out {
+    font-size: 20px;
+    font-weight: 900;
+     color: red !important; 
+   
+  }
+
+/* Responsive styles for small screens */
+@media (max-width: 576px) {
+    .car .car-rate button {
+        font-size: 12px; /* Decrease font size for small screens */
+    }
+}
+
+.car .car-rate button:hover {
+    background-color: #585857;
+  
+}
+
+.seating-options,
+.fuel-checkboxes,
+.brand-type-checkboxes,
+.segment-type-checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.filter-option {
+    margin-right: 25px;
+    margin-bottom: 10px;
+    
+}
+
+.filter-option input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+
+
+.text-primary{
+    color: #F77D0A !important;
+  }
+  
+  .btn-primary{
+    background-color: #F77D0A  !important;
+    border-radius: 12px  !important;
+    border: none  !important;
+    font-weight: 700  !important;
+  }
+  
+  
+  .bg-primary{
+    background-color: #F77D0A !important;
+  }
+  .tab-container{
+    display: flex; 
+    padding: 2px;
+  }
+
+
+  .search-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border: 1px solid gray;
+}
+
+.input-group-text {
+    background-color: transparent;
+    border: none;
+}
+/* Responsive styles for medium screens */
+/* Responsive styles for screens between 200px and 720px */
+
+
+/* Responsive styles for large screens */
+/* Responsive styles for screens 1279px and above */
+/* Common styles for screens 1279px and above */
+@media (min-width: 1279px) {
+    .car {
+        min-width: calc(25.3333% - 8px); /* Three cars per row with some gap */
+    }
+
+    .car-details p {
+        font-size: 12px !important;
+    }
+
+    .car img {
+        height: 10vh;
+        margin: 5px 0;
+    }
+}
+
+/* Responsive styles for screens 1000px to 1278px */
+@media (min-width: 1000px) and (max-width: 1278px) {
+    .car {
+        min-width: calc(33.3333% - 8px); /* Three cars per row with some gap */
+    }
+
+    .car img {
+        height: 9vh;
+        margin: 5px 0;
+    }
+    .car-details p {
+        font-size: 12px !important;
+    }
+}
+
+/* Responsive styles for screens 720px to 999px */
+@media (min-width: 720px) and (max-width: 1025px) {
+    .car {
+        min-width: calc(50% - 8px); /* Two cars per row with some gap */
+    }
+
+    .car img {
+        height: 8vh;
+        margin: 5px 0;
+    }
+}
+
+/* Responsive styles for screens 300px to 719px */
+@media (min-width: 300px) and (max-width: 719px) {
+    .car {
+        min-width: calc(100% - 8px); /* One car per row with some gap */
+    }
+}
+/* Styles for the button */
+.form-control:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: gray; /* Set the desired color */
+}
+
+
+.sidebar {
+    display: none; /* Initially hide the sidebar */
+  }
+  .admin {
+    display: block; /* Hide by default */
+    text-align: center;
+    margin-top: 20px !important;
+    /* color: #F77D0A !important; */
+}
+
+  /* Apply styles when the screen width is 995px or more */
+  @media only screen and (min-width: 995px) {
+    .sidebar {
+      display: block; /* Display the sidebar */
+      /* Additional styling for the sidebar on larger screens if needed */
+   
+    }
+  
+  
+  }
+  @media only screen and (min-width: 995px) {
+    .sidebar {
+      display: block; /* Display the sidebar */
+      /* Additional styling for the sidebar on larger screens if needed */
+   
+    }
+    .admin {
+        display: none; /* Show when screen width is below 995px */
+       
+       
+    }
+  
+  }
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  .booking-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    overflow-x: auto;
+    max-height: 400px; /* Adjust the height as needed */
+    min-width: 250px;
+  }
+  
+  .booking-table th, .booking-table td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    white-space: nowrap; /* Prevent text wrapping */
+  }
+  
+  .booking-table th {
+    background-color: #f2d371;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .booking-table {
+      overflow-y: auto;
+      display: block;
+    }
+  
+    .booking-table thead, .booking-table tbody, .booking-table th, .booking-table td, .booking-table tr {
+      display: block;
+    }
+  
+    .booking-table th {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+  
+    .booking-table td {
+      border: none;
+      border-bottom: 1px solid #dddddd;
+      position: relative;
+      padding-left: 30%;
+    }
+  
+    .booking-table td:before {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      width: 100%;
+      padding-right: 10px;
+      white-space: nowrap;
+      content: attr(data-label);
+    }
+  }
+  .btnClass{
+    border-radius: 25px;
+    color: black;
+    background-color: transparent !important;
+   font-size: 20px;
+    padding: 5px;
+    width: 50px;
+  }
+.canclebook{
+  color: black !important;
+  margin-left: 10px;
+  font-size: 24px;
+  width: 100px;
+ 
+  font-weight: 800;
+ 
+ 
+}
+/* Default styles for all screen sizes */
+.modal1 {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  overflow: auto; /* Enable scrolling for the entire modal */
+  z-index: 1000000;
+}
+
+.modal-fullscreen1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  z-index: 1000000;
+}
+
+.modal-content1 {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+  margin-top: 70px;
+  z-index: 1000000;
+}
+

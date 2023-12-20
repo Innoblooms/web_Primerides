@@ -1,0 +1,178 @@
+.popup {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    margin: 10px;
+    padding: 30px;
+    background-color: rgb(3,3,36); /* Bootstrap light background color */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    z-index: 1000;
+    max-width: 80vw; /* Limit maximum width */
+}
+
+.popup .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.popup p {
+  
+    color: #f2d371;
+}
+
+
+
+.contact-button {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    border: 2px solid #fff;
+    background-color: #ffc107; /* Bootstrap warning color */
+    color: #212529; /* Bootstrap dark text color */
+    border-radius: 50%;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.contact-button:hover {
+    background-color: #ffca28; /* Bootstrap hover warning color */
+    color: #212529; /* Bootstrap dark text color */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
+}
+
+.phone1 {
+    font-size: 14px;
+    color: white;
+}
+/* Add this CSS to your stylesheet or component style file */
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li a {
+    text-decoration: none; /* Remove underline */
+    margin-top: 8px;
+ 
+    color: white !important; /* Set text color to white */
+}
+
+
+
+
+
+/* Responsive Styles */
+
+@media (max-width: 600px) {
+    .popup {
+        max-width: 90vw;
+    }
+}
+
+/* Add this CSS to your stylesheet */
+
+@keyframes blink {
+    0%, 100% { background-color: #ffca28; }
+    50% { background-color: #F77D0A; } /* Change to the desired background color */
+    0%, 100% { color: black; }
+    50% { color: rgb(0, 0, 5); } /* Change to the desired background color */
+  }
+  
+  .blink {
+    animation: blink 2s infinite; /* Adjust the duration as needed */
+  }
+
+  .golden{
+    color: #f2d371 !important;
+  }
+  
+
+
+
+  .Whatsapppopup {
+    position: fixed;
+    bottom: 30px;
+    right: 15px;
+    margin: 10px;
+    padding: 30px;
+    background-color: rgb(3,3,36); /* Bootstrap light background color */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    max-width: 80vw; /* Limit maximum width */
+  }
+
+
+  
+.Whatsapppopup .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .Whatsapppopup p {
+  
+    color: #f2d371;
+  }
+  
+  
+  
+  .Whatsapppopup-button {
+    position: fixed;
+    bottom: 90px;
+    right: 15px;
+    border: 2px solid white;
+    background-color: #17eb21;
+    color: white; /* Bootstrap dark text color */
+    border-radius: 50%;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, transform 0.3s;
+  }
+  
+  .Whatsapppopup-button:hover {
+    background-color: #ffca28; /* Bootstrap hover warning color */
+    color: #212529; /* Bootstrap dark text color */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
+  }
+  
+  .phone2 {
+    font-size: 14px;
+    color: white;
+  }
+  /* Add this CSS to your stylesheet or component style file */
+  
+  
+  /* Responsive Styles */
+  
+  @media (max-width: 600px) {
+    .Whatsapppopup {
+        max-width: 90vw;
+    }
+  }
+  
+
+  
+  
+ 

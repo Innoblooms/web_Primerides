@@ -1,0 +1,99 @@
+<div class="container-fluid py-5">
+    <div class="container pt-4 pb-3">
+        <h1 class="display-1 text-primary text-center"><i class="fa fa-2x fa-car"></i></h1>
+        <h1 class="display-4 text-uppercase text-center">Car for Rent(Monthly)</h1>
+        <div class="row" style="padding-left: 8px;">
+
+            <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 px-2">
+                Start Date
+                <input type="date" class="form-control" [(ngModel)]="selectedPickupDate" [min]="getCurrentDate()"
+                    (change)="updateAvailableTimes()" />
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 px-2"><br>
+                <div class="input-group">
+                    <input type="text" class="form-control " [(ngModel)]="searchText" (input)="searchCars()" 
+                        placeholder="Search Your Car here...">
+                    <div class="input-group-append">
+                        <button class="btn btn-black text-uppercase "> <i
+                                class=" text-primary fa  fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 px-2"><br>
+                <label for="sort-filter" class="filter-icon" (click)="toggleDropdown()">
+                    Sort by:
+                    <span><i class="fas fa-caret-down"></i></span>
+                </label>
+                <div *ngIf="!isDropdownOpen && selectedSortingOption">
+                    {{ selectedSortingOption }}
+                </div>
+                <div class="card" *ngIf="isDropdownOpen">
+                    <label for="lowToHigh" (click)="sortCarsLowToHigh(); selectOption('Price: Low to High')">Price:
+                        Low
+                        to High</label>
+                    <label for="highToLow" (click)="sortCarsHighToLow(); selectOption('Price: High to Low')">Price:
+                        High
+                        to Low</label>
+                        <label style="cursor: pointer;" for="highToLow" (click)="
+                        sortCarsAvailability();
+                        selectOption('Car:Show By Availability')
+                      ">Car: Show By Availability</label>
+                </div>
+            </div> -->
+           
+                <div class="col-xl-3 col-lg-3 col-sm-4 col-xs-6 px-2">
+                  <br />
+                  <div class="dropdown" (click)="toggleDropdown()">
+                    <label style="cursor: pointer;" for="sort-filter" class="filter-icon">
+                      Sort by:&nbsp;
+                    
+                      <span *ngIf="selectedSortingOption">{{ selectedSortingOption }}</span> &nbsp;
+                      <span><i class="fas fa-caret-down"></i></span>
+                    </label>
+              
+                    <div class="card dropdown-menu" *ngIf="isDropdownOpen" [ngStyle]="{'position': 'absolute', 'z-index': 1000}" (click)="$event.stopPropagation()">
+                      <label style="cursor: pointer;" for="lowToHigh" (click)="sortCarsLowToHigh(); selectOption('Price: Low to High'); $event.stopPropagation()">Price: Low to High</label>
+                      <label style="cursor: pointer;" for="highToLow" (click)="sortCarsHighToLow(); selectOption('Price: High to Low'); $event.stopPropagation()">Price: High to Low</label>
+                      <label style="cursor: pointer;" for="availability" (click)="sortCarsAvailability(); selectOption('Car: Show By Availability'); $event.stopPropagation()">Car: Show By Availability</label>
+                      <!-- Add additional features as needed -->
+                    </div>
+                  </div>
+               
+  
+  
+            
+        </div>
+
+         <div class="car-list" >
+            <ng-container *ngFor="let car of data">
+            <div class="car rent-item" *ngIf="allowedModals.includes(car.Modal)">              
+                <h2>{{ car.Modal }}</h2>
+                <img src="{{ car.Image }}" alt="{{ car.Modal }} Image" />
+                <div class="car-details">
+                    <p><i class="fas fa-gas-pump text-primary"></i> {{ car.Fuel }}</p>
+                    <p><i class="fas fa-cog text-primary"></i> {{ car.Transmission }}</p>
+                    <p><i class="fas fa-chair text-primary"></i> {{ car.Seater }}</p>
+                </div>
+                <div class="car-rate">
+                    <p *ngIf="car.status !== 'Sold Out'">
+                        <span class="rupee-symbol">₹</span>
+                        {{ car.MonthlyPrice }}/Month
+                         
+                    </p>
+                    <button *ngIf="car.status !== 'Sold Out'" (click)="bookNow(car)">
+                        Book Now
+                    </button>
+                    <span *ngIf="car.status === 'Sold Out'" class="sold-out">Rent Out</span>
+                </div>
+                <div class="gap"></div>
+                <p><span class="asterisk-text">*</span> Exclude Prices of Fuel & Toll</p>
+                <b>* FasTag Available</b>
+            </div>
+
+        </ng-container>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,466 @@
+<form [formGroup]="searchForm">
+  <div class="container-fluid  py-5">
+    <div class="container pt-3 pb-3">
+      <h1 class="display-4 text-primary text-uppercase text-center">BILLING DETAILS</h1>
+
+
+
+      <div class="row ">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 secondary px-1 mb-1" style="padding: 5px;">
+
+          <div class="row mx-n1">
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 px-1 mb-1 text-center secondary">
+              <span> {{ selectedCar.Modal }}</span><br>
+              <img style="height: 100px; width: 200px;" [src]="selectedCar.Image" [alt]="selectedCar.Modal + ' Image'"
+                formControlName="">
+              <br>
+              <span><i class="text-primary fas fa-chair"></i> {{ selectedCar.Seater }}</span>&nbsp;
+              <span><i class="text-primary fas fa-gas-pump"></i> {{ selectedCar.Fuel }}</span>&nbsp;
+              <span><i class="text-primary fas fa-cog"></i> {{ selectedCar.Transmission}}</span>
+
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 px-1 mb-1 text-center"
+              style="background-color: #fdf8f8; ">
+
+              <h3 class="text-primary ">BOOKING DETAILS</h3>
+              <span style="color: black;">{{ this.selectedPickupDate }}</span> &nbsp;
+              <span style="color: black;">{{ this.selectedStartTime}}</span> <b>&nbsp; To </b>&nbsp;
+              <span style="color: black;"> {{ this.selectedDropoffDate}}</span> &nbsp;
+              <span style="color: black;">{{ this.selectedEndTime}}</span>
+              <h6><b> Duration: {{this.totalTime }} </b></h6>
+              <b>City:</b><span style="color: black;">{{ this.selectedStateValue}}</span><br>
+
+            </div>
+
+          </div>
+
+          <div class="row mx-n1">
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12  mb-1 bg-light" style="padding: 6px;">
+
+              <table style="margin-left: 15px;">
+                <tr>
+                  <th colspan="2" class="text-primary">FARE DETAILS</th>
+                </tr>
+                <tr>
+                  <td>Base Fare(&#8377;):</td>
+                  <td class="bold">{{selectedCar.Rate || selectedCar.MonthlyPrice}}</td>
+                </tr>
+
+
+                <tr>
+                  <td>Refundable Security(&#8377;):</td>
+                  <td class="bold">{{ selectedCar.SecurityDeposit}}</td>
+                </tr>
+                <tr>
+                  <td>Insurance & GST (&#8377;):</td>
+                  <td class="bold">Included{{ selectedCar.Gst}}</td>
+                </tr>
+                <hr>
+                <tr>
+                  <td>Total Amt(&#8377;):</td>
+                  <td class="bold">{{ selectedCar.Total}}</td>
+                </tr>
+
+                <div class="bold text-center">Fuel, Tolls, Parking Price Excluded</div>
+              </table>
+
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-1 " style="background-color: #e0c4c4; padding: 6px;">
+
+              <table style="margin-left: 15px;">
+                <tr>
+                  <th colspan="2" class="text-primary text-uppercase">Delivery And Return Details</th>
+                </tr>
+                <tr>
+                  <td>Delivery Location:</td>
+                  <td class="bold">{{ this.selectedStateValue}} </td>
+                </tr>
+                <tr>
+                  <td>Return Location:</td>
+                  <td class="bold">Delhi-NCR</td>
+                </tr>
+                <tr>
+                  <td>Kms Limits:</td>
+                  <td class="bold">300 kms{{ selectedCar.KmLimit}}</td>
+                </tr>
+
+                <tr>
+                  <td>Extra kms Charge:</td>
+                  <td class="bold">9Rs/km</td>
+                </tr>
+                <tr>
+                  <td>Our Parking Hub:</td>
+                  <td class="bold">Indirapuram, Gurgaon</td>
+                </tr>
+
+              </table>
+
+
+
+            </div>
+
+
+          </div>
+
+          <div class="row mx-n1">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 px-1 mb-1 justify-content-center"
+              style="background-color: #f8e2e2; padding: 6px;">
+              <ol>
+                <p class="bold text-uppercase text-primary">Home Delivery Charges</p>
+                <li style="color: black;">Upto (0km - 5km) :- Free</li>
+                <li style="color: black;">Upto (6km - 15km) :- Rs 500</li>
+                <li style="color: black;">Upto (16km - 25km) :- Rs 750</li>
+                <li style="color: black;">Upto (26km +) :- Rs 1000 </li>
+
+              </ol>
+
+            </div>
+          </div>
+
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 px-1 mb-1 secondary" style="padding: 5px;">
+          <h3 class="text-center text-primary">CUSTOMER DETAILS</h3>
+          <div class="row justify-content-center">
+            <div class="col-4">
+              <span *ngIf="CusName?.hasError('required') || CusName?.hasError('invalidChar')" class="error-message"></span>
+              <div [ngClass]="{'error-field': (CusName?.invalid && (CusName?.dirty || CusName?.touched))}">
+                <input type="text" class="p-1" placeholder="Full Name" formControlName="CusName">
+              </div>
+            </div>
+            
+            <!-- Repeat the same pattern for other fields (Phone, Email, DLNo, Addhar, Address) -->
+            
+            
+            <div class="col-4">
+              <span *ngIf="Phone?.hasError('required') || Phone?.hasError('maxlength') || Phone?.hasError('pattern')" class="error-message"></span>
+              <div [ngClass]="{'error-field': (Phone?.invalid && (Phone?.dirty || Phone?.touched))}">
+                <input type="text" class="p-1" maxlength="10" minlength="10" placeholder="Mobile No." formControlName="Phone">
+              </div>
+            </div>
+            
+            <div class="col-4">
+              <span *ngIf="Email?.hasError('required') || Email?.hasError('email')" class="error-message"></span>
+              <div [ngClass]="{'error-field': (Email?.invalid && (Email?.dirty || Email?.touched))}">
+                <input type="email" class="p-1" placeholder="Email" formControlName="Email">
+              </div>
+            </div>
+            
+            <div class="col-4">
+              <span *ngIf="DLNo?.hasError('required')" class="error-message"></span>
+              <span *ngIf="DLNo?.hasError('maxlength')" class="error-message"></span>
+              <div [ngClass]="{'error-field': (DLNo?.invalid && (DLNo?.dirty || DLNo?.touched))}">
+                <input type="text" class="p-1" maxlength="30" placeholder="Driving Licence" formControlName="DLNo">
+              </div>
+            </div>
+            
+            
+            <div class="col-4" >
+              <!-- <span *ngIf="Addhar?.hasError('required')" class="error-message"></span> -->
+              <span *ngIf="Addhar?.hasError('required') || Addhar?.hasError('maxlength') || Addhar?.hasError('pattern')" class="error-message"></span>
+           
+              <div [ngClass]="{'error-field': Addhar?.invalid && (Addhar?.dirty || Addhar?.touched)}">
+              <input type="text" maxlength="12" class="p-1" placeholder="Aadhar No." formControlName="Addhar">
+              </div>
+            </div>
+            
+            <div class="col-4" >
+              <span *ngIf="Address?.hasError('required')" class="error-message"></span>
+              <div [ngClass]="{'error-field': Address?.invalid && (Address?.dirty || Address?.touched)}">
+              <input type="text" class="p-1" placeholder="Address" formControlName="Address">
+              </div>
+            </div>
+            
+            
+            <div class="col-4">
+              <input type="text" class="p-1" placeholder="City" formControlName="City">
+            </div>
+            <div class="col-4">
+              <input type="text" class="p-1" placeholder="State" formControlName="State">
+            </div>
+            <div class="col-4">
+              <input type="text" class="p-1" placeholder="Country" formControlName="Country">
+            </div>
+
+
+
+
+            <div class="col-4">
+              <input type="text" class="p-1" placeholder="pincode" formControlName="Pincode">
+            </div>
+
+
+            <div class="col-4">
+              <input type="text" class="p-1" placeholder="Reference no." formControlName="RefNo">
+            </div>
+
+            <div class="col-4">
+              <input type="text" class="p-1" placeholder="Destination" formControlName="Destination">
+            </div>
+
+          </div>
+
+
+
+          <div class="row mx-n1" style="margin-top: 10px; color: white">
+            <div class="col-12">
+              Kindly provide below documents to our executive at the time of delivery/Pick up the car.
+              <ol>
+                <li> Valid driving licence hard copy or soft copy.<br>
+                  (Kindly note - Your booking stands cancel if you are restricted for driving or your DL is cancelled by
+                  Government Authorities)</li>
+
+                <li> Valid Address Proof such as Aadhar/Voter ID/Passport issued by Indian Government.</li>
+
+                <li> Digilocker, M Aadhar or Soft copy will be accepted and subject to verification. </li>
+
+              </ol>
+              <div style="color:black; background-color: #f8f8e9; padding-left: 5px;">
+                <u><b>*</b>Kindly Note:-</u>
+                If you are fail to provide above documents, your booking will be cancelled and full refund will be
+                processed after deduction of processing fees (Rs 500).
+
+                Prime Rides fully reserved the rights to Cancel any booking without prior information to its customer.
+                Your bookings is subject to verification of credentials and profile information provided by you, in
+                case of any mismatch or discrepancy your booking will be cancelled without any prior information and
+                full refund will be done.
+              </div>
+              <div>
+                *By clicking on Agree and Proceed you are agreeing to the <u (click)="terms()"
+                  style="cursor: pointer; color: #f2d371;">Terms and Conditions </u> of Prime Rides
+              </div>
+
+            </div>
+          </div>
+
+
+
+          <div class="row justify-content-center">
+            <div class="text-center" style="margin-top: 20px;">
+              <button style="color: black;" class="btn btn-primary" type="submit" (click)="proceed(selectedCar)">Agree
+                and Proceed</button>
+            </div>
+
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+
+
+
+
+
+
+
+<div class="container-fluid py-2">
+  <div class="container pt-2 pb-2">
+    <div class="row justify-content-center">
+      <div class="col-12 px-1 mb-1" style="flex: 1; background-color: #f0f0f0; padding: 10px;">
+        <h4><u> IMPORTANT POINTS TO REMEMBER</u></h4>
+        <b>PRICING PLAN:</b>
+        The pricing plan cannot be changed after the booking.<br><br>
+
+
+        <b>DOCUMENT VERIFICATION:</b>
+        "Please ensure you have your Valid Driving License ready for inspection. Our executive will verify your
+        Valid Driving License and ID proof during the car delivery
+        and the details should match the information provided during the booking. <b>This verification is
+          mandatory.</b><br>
+        If you are unable to provide documents, we would be unable to hand over the car to you and it will be treated as
+        a cancellation with 100% amount Refundable.<br><br>
+
+
+        <b>PRE-HANDOVER INSPECTION:</b>
+        "Please conduct a inspection of the car, including checking the fuel gauge and odometer, before
+        hand over the car."<br><br>
+        <b>TOLLS, PARKING, INTER-STATE TAXES:</b> To be paid by you.<br><br>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{ display: displayStyle }" id="date">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="text-primary text-center" id="exampleModalLongTitle">Terms and Conditions</h2>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close" (click)="close()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+        <h2 class="text-primary">Intellectual Property Rights</h2>
+        <p>
+
+          Other than the content you own, under these Terms, Prime Rides Services Pvt Ltd and/or its licensors
+          own all the intellectual property rights and materials contained on this website.
+
+          You are granted a limited license only for the purposes of viewing the material contained on this
+          website. </p>
+
+
+
+
+
+
+        <h2 class="text-primary ">Restrictions</h2>
+        <h4> You are specifically restricted from all of the following:</h4>
+        <ol style="color: rgb(7, 7, 7);">
+          <li style="color: rgb(7, 7, 7);">Publishing website material in any other media.</li>
+          <li style="color: rgb(7, 7, 7);">Selling, sublicensing, and/or otherwise commercializing any website material.
+          </li>
+          <li style="color: rgb(7, 7, 7);">Publicly performing and/or showing any website material.</li>
+          <li style="color: rgb(7, 7, 7);">Using this website in any way that is or may be damaging to it.</li>
+          <li style="color: rgb(7, 7, 7);">Using this website in any way that impacts user access to it.</li>
+          <li style="color: rgb(7, 7, 7);">Using this website contrary to applicable laws and regulations or in any way
+            that may cause harm
+            to the website, or to any person or business entity;</li>
+          <li style="color: rgb(7, 7, 7);">Engaging in any data mining, data harvesting, data extracting, or any other
+            similar activity in
+            relation to this website;</li>
+          <li style="color: rgb(7, 7, 7);">Using this website to engage in any advertising or marketing.</li>
+          <li style="color: rgb(7, 7, 7);">Certain areas of this website are restricted from being accessed by you.</li>
+          <li style="color: rgb(7, 7, 7);">Prime Rides Services Pvt Ltd may restrict your access to any areas of this
+            website at any time,
+            in its absolute discretion.</li>
+          <li style="color: rgb(7, 7, 7);">Any user ID and password you may have for this website are confidential, and
+            you must maintain
+            confidentiality as well.</li>
+        </ol>
+
+
+
+
+
+
+        <h2 class="text-primary">Your Content</h2>
+        <p>
+
+          In these Website Standard Terms and Conditions, "Your Content" shall refer to any audio, video,
+          text, images, or other material you choose to display on this website. By displaying Your Content,
+          you grant Prime Rides Services Pvt Ltd a non-exclusive, worldwide, irrevocable, sublicensable
+          license to use, reproduce, adapt, publish, translate, and distribute it in any and all media.<br>
+
+          Your Content must be your own and must not infringe upon any third-party's rights. Prime Rides
+          Services Pvt Ltd reserves the right to remove any of Your Content from this website at any time
+          without notice.
+        </p>
+
+
+
+
+
+        <h2 class="text-primary">No Warranties</h2>
+        <p>
+
+          This website is provided "as is," with all faults, and Prime Rides Services Pvt Ltd makes no
+          representations or warranties of any kind regarding this website or the materials contained on it.
+          Furthermore, nothing on this website should be construed as advice.
+        </p>
+
+
+
+
+        <h2 class="text-primary">Limitation Of Liability</h2>
+        <p>
+          In no event shall Primerides services Pvt Ltd, nor any of its officers, directors and
+          employees, shall be held liable for anything arising out of or in any way connected with your use of
+          this Website whether such liability is under contract. Primerides services Pvt Ltd, including
+          its officers, directors and employees shall not be held liable for any indirect, consequential or
+          special liability arising out of or in any way related to your use of this Website.
+        </p>
+
+
+
+
+        <h2 class="text-primary">Indemnification</h2>
+        <p>
+          You hereby indemnify to the fullest extent Primerides services Pvt Ltd from and against any
+          and/or all liabilities, costs, demands, causes of action, damages and expenses arising in any way
+          related to your breach of any of the provisions of these Terms.
+        </p>
+
+
+
+
+
+
+        <h2 class="text-primary">Severability</h2>
+        <p>
+          If any provision of these Terms is found to be invalid under any applicable law, such provisions
+          shall be deleted without affecting the remaining provisions herein.
+        </p>
+
+
+
+
+
+        <h2 class="text-primary">Variation of Terms</h2>
+        <p>
+          Primerides services Pvt Ltd is permitted to revise these Terms at any time as it sees fit, and
+          by using this Website you are expected to review these Terms on a regular basis.
+        </p>
+
+
+
+
+
+        <h2 class="text-primary">Assignment</h2>
+        <p>
+          The Primerides services Pvt Ltd is allowed to assign, transfer, and subcontract its rights
+          and/or obligations under these Terms without any notification. However, you are not allowed to
+          assign, transfer, or subcontract any of your rights and/or obligations under these Terms.
+        </p>
+
+
+
+
+
+        <h2 class="text-primary">Entire Agreement</h2>
+        <p>
+          These Terms constitute the entire agreement between Primerides services Pvt Ltd and you in
+          relation to your use of this Website, and supersede all prior agreements and understandings.
+        </p>
+
+
+
+
+
+        <h2 class="text-primary">
+          Governing Law & Jurisdiction</h2>
+        <p>
+          These Terms will be governed by and interpreted in accordance with the laws of the State of in, and
+          you submit to the non-exclusive jurisdiction of the state and federal courts located in in for the
+          resolution of any disputes.
+        </p>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="close()">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<form method="POST" name="servePayment" action="https://carbackend.primerides.in/ccavRequestHandler">
+  <input type="hidden" name="merchant_id" value="{{merchant_id}}" />
+  <input type="hidden" name="order_id" value="{{order_no}}" />
+  <input type="hidden" name="currency" value="{{currency}}" />
+  <input type="hidden" name="amount" [value]="testAmount" />
+  <input type="hidden" name="redirect_url" value="{{redirect_url}}" />
+  <input type="hidden" name="cancel_url" value="{{cancel_url}}" />
+  <button hidden type="submit">Proceed</button>
+</form>

@@ -1,0 +1,26 @@
+.justify-content-center{
+    margin-top: 30px;
+}
+
+.text-primary{
+    color: #F77D0A !important;
+  }
+  
+  .btn-primary{
+    background-color: #F77D0A  !important;
+    border-radius: 12px  !important;
+    border: none  !important;
+    font-weight: 700  !important;
+  }
+  
+  
+  .bg-primary{
+    background-color: #F77D0A !important;
+  }
+ 
+
+  @media only screen and (min-width: 720px) {
+    .container-fluid{
+       margin-top: -60px;
+    }
+   }

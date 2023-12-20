@@ -1,0 +1,122 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 1000;
+  /* Header ko z-index ke through top par le aaye */
+ 
+}
+
+.offcanvas {
+  max-width: 100%;
+  /* Set the desired width here */
+}
+
+.custom {
+  margin-top: 30px;
+
+}
+
+.img {
+  height: 30px !important;
+  border-radius: 100%;
+}
+
+.curser {
+  cursor: pointer !important;
+}
+
+
+
+
+/* Customize colors and styles as per your design */
+.custom-dropdown .dropdown-toggle,
+.custom-dropdown .dropdown-item {
+  color: #333;
+  /* Text color */
+}
+
+.custom-dropdown .dropdown-item:hover {
+  background-color: #f8f9fa;
+  /* Hover background color */
+  color: #007bff;
+  /* Hover text color */
+}
+
+.custom-dropdown .dropdown-header {
+  background-color: #007bff;
+  /* Header background color */
+  color: #fff;
+  /* Header text color */
+}
+
+/* Optional: Add a box shadow to the dropdown menu */
+.custom-dropdown .dropdown-menu {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.custom-icon1{
+  border-radius: 100%;
+  margin-top: -10px;
+
+  padding: 5px;
+  border: 2px solid whitesmoke;
+}
+.some{
+  margin-right: 15px;
+  margin-top: 8px;
+  
+}
+.dropdown-item{
+  padding-right: 90px;
+  font-weight: bold;
+ 
+}
+
+
+.image{
+  height: 80px;
+  width: 80px;
+  border-radius: 100%;
+}
+/* Media query for screens smaller than 768 pixels (typical mobile devices) */
+@media (max-width: 767px) {
+  .navbar {
+      height: 100%; /* Adjust the height for mobile view */
+     
+  }
+  .image{
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    margin-top: -20px;
+    margin-left: -10px;
+  }
+  
+.navbar-brand{
+  height:25px;
+  
+}
+}
+.size{
+  font-size: 25px;
+}
+.secondary{
+  background: rgb(3,3,36);
+  /* background: var(--secondary); */
+}
+
+.phone-text{
+color:#f2d371;
+}
+.custom.btn:active {
+  background-color: #e2b00a !important; /* Change this to the desired light color */
+  transition: background-color 0.3s ease; /* Add a smooth transition effect */
+  color: black;
+}
+.custom.btn {
+color: black;
+font-weight: bold;
+}
+

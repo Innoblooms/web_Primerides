@@ -1,0 +1,310 @@
+.cars-for-rent {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.row {
+    display: flex;
+    align-items: flex-start;
+    /* Adjust alignment as needed */
+    justify-content: space-between;
+}
+
+.filter-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.filter {
+    margin-bottom: 20px;
+}
+
+.filter label {
+    cursor: pointer;
+}
+
+.filter input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.car-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+}
+
+@media only screen and (min-width: 720px) {
+    .container-fluid{
+       margin-top: -60px;
+    }
+   }
+
+
+.car {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 300px;
+    min-height: 200px;
+    border: 1px solid #ccc;
+    margin: 4px;
+}
+
+.car h2 {
+    font-size: 15px;
+    margin: 0;
+}
+
+
+
+.car img {
+    height: 100px;
+    margin: 5px 0;
+}
+
+
+.car-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+.cars {
+    margin-top: 10px;
+}
+
+.car .car-details p {
+    font-size: 14px;
+    margin: 0 10px;
+}
+
+.car .car-rate {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 2px 0;
+}
+
+.car .car-rate p {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.car .car-rate button {
+    background-color: #F77D0A;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.car .car-rate button:hover {
+    background-color: #F77D0A;
+}
+
+.gap {
+    height: 20px;
+    /* Adjust the gap height as needed */
+}
+
+.filter label {
+    cursor: pointer;
+    margin-right: 32px;
+    /* Add margin to create space between labels */
+}
+
+.filter-icon {
+    margin-right: 10px;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+
+}
+
+h2 {
+    margin-right: 593px;
+    /* Adjust the margin to control the gap */
+}
+
+.card {
+    display: flex;
+    background-color: #fff;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    position: relative;
+}
+
+.bold-label {
+    font-weight: 500;
+}
+
+.asterisk-text {
+    color: red;
+}
+
+/* Style the card */
+.cards {
+    border: 1px solid #ccc;
+
+
+}
+
+
+
+/* Style the input field and icon */
+.input-group-prepend {
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.input-group-text {
+    background-color: transparent;
+    border: none;
+}
+
+
+
+
+
+/* Style the "Km Plan" label */
+.input-group-text {
+    font-weight: bold;
+}
+
+/* For screens smaller than 576px (extra small devices) */
+@media (max-width: 575.98px) {
+    .row {
+        flex-direction: column;
+        /* Stack cards vertically on smaller screens */
+    }
+
+    .col-xl-2,
+    .col-lg-2,
+    .col-md-4 {
+        padding: 5px;
+        /* Reduce padding to save space */
+    }
+
+    .button-group {
+        flex-direction: column;
+        /* Stack buttons vertically on smaller screens */
+    }
+}
+
+/* For screens between 576px and 767.98px (small devices) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .row {
+        flex-wrap: wrap;
+        /* Allow cards to wrap to the next line */
+    }
+
+    .col-xl-2,
+    .col-lg-2,
+    .col-md-4 {
+        padding: 5px;
+        /* Reduce padding to save space */
+        flex-basis: 50%;
+        /* Two cards per row */
+    }
+
+    .button-group {
+        flex-direction: column;
+        /* Stack buttons vertically on smaller screens */
+    }
+}
+
+/* For screens between 768px and 991.98px (medium devices) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .row {
+        flex-wrap: wrap;
+        /* Allow cards to wrap to the next line */
+    }
+
+    .col-xl-2,
+    .col-lg-2,
+    .col-md-4 {
+        padding: 5px;
+        /* Restore padding for medium screens */
+        flex-basis: 33.33%;
+        /* Three cards per row */
+    }
+
+    .button-group {
+        flex-direction: row;
+        /* Display buttons in a row for medium screens */
+    }
+}
+
+
+/* Style the buttons */
+.btn {
+    background-color: #343a40;
+    color: #fff;
+    margin: 2px;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+
+
+
+.sold-out {
+    font-size: 24px;
+    font-weight: 900;
+     color: red;
+   
+  }
+  .popup-card {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px; /* Adjust the gap between items as needed */
+    padding: 10px;
+    font-size: 12px;
+  }
+  
+  .time-picker{
+    position: relative;
+  }
+  
+  .time-picker.actve .popup-card{
+    display: block;
+  }
+  
+
+  .secondary{
+    background: rgb(3,3,36);
+    /* background: var(--secondary); */
+  }
+
+  .text-blue{
+    /* color:#f2d371; */
+    color: #F77D0A;
+  }
+
+  .text-primary {
+    color: #F77D0A !important;
+  }
+  
+  
+  .card.dropdown-menu {
+    margin-top: -50px;
+    margin-left: -10px;
+    width: auto; /* Set the width as needed */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    padding: 10PX;
+  }
+  

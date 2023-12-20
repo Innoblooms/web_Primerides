@@ -1,0 +1,24 @@
+<!-- success.component.html -->
+
+<div class="card-container">
+    <div class="card" [@fadeIn]="'in'">
+      <div class="card-header">
+        <h2>Payment Successful</h2>
+      </div>
+      <div class="success-logo fade-in">
+        <!-- Add your success icon here -->
+        <i class="fa fa-2x fa-check success-icon"></i>
+      </div>
+      <div class="card-content fade-in">
+        <!-- Add your card content here -->
+        <h1>Congatualtions!</h1>
+        <p> Your Payment Transaction has been successful.</p>
+        <p>Thank you for your Booking.</p>
+      </div>
+      <div class="card-footer fade-in">
+        <!-- Add your card footer content here -->
+        <button class="btn" (click)="goBack()">Done</button>
+      </div>
+    </div>
+  </div>
+  

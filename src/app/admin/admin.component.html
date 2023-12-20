@@ -1,0 +1,268 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 col-xl-2">
+      <div class="sidebar"><br><br><br>
+        <h2>Admin Panel</h2>
+        <hr style="size: 2px;">
+        <h4>Dashboard</h4>
+        <h4>Booking</h4>
+        <h4>Setting</h4>
+
+      </div>
+    </div> -->
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top: 55px;">
+      <h3 class="admin"><i class="fas fa-cogs" style="color: #F77D0A;"></i> ADMIN PAGE</h3>
+      <div class="row py-1">
+        <div class="col-xl-2 col-lg-2 col-md-4">
+          <span class="input-group-text" id="basic-addon1">Start Date </span>
+          <div class="date mb-3" id="date" data-target-input="nearest">
+            <input type="date" class="form-control" [(ngModel)]="selectedPickupDate" [min]="getCurrentDate()"
+              (change)="updateAvailableTimes()">
+          </div>
+        </div>
+        <div class="col-xl-1 col-lg-2 col-md-4 ">
+          <span class="input-group-text" id="basic-addon1">Start time</span>
+          <div class="dropdown time-picker" (click)="onTimePickerClick($event)">
+            <input type="text" class="form-control" [(ngModel)]="selectedStartTime"
+              (click)="showStartTimeOptions = !showStartTimeOptions">
+            <div class="dropdown-menu popup-card" *ngIf="showStartTimeOptions">
+              <div class="cardse" *ngFor="let time of timeOptions" (click)="selectStartTime(time)">{{ time
+                }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-2 col-lg-2 col-md-4 ">
+          <span class="input-group-text" id="basic-addon1">End Date </span>
+          <div class="date mb-3" id="date" data-target-input="nearest">
+            <input type="date" class="form-control" [(ngModel)]="selectedDropoffDate" [min]="getMinEndDate()">
+          </div>
+        </div>
+        <div class="col-xl-1 col-lg-2 col-md-4 ">
+          <form [formGroup]="searchForm" >
+           
+                  <label for="end-time" style="margin-top: 5px;">End Time</label>
+                  <div class="dropdown time-picker" (click)="onTimePickerClick($event)">
+                    <input type="text" formControlName="EndTime"
+                      (click)="showEndTimeOptionsModal = !showEndTimeOptionsModal" class="form-control"
+                      [(ngModel)]="selectedEndTime">
+                    <div class="dropdown-menu popup-card" *ngIf="showEndTimeOptionsModal">
+                      <div class="cardse" *ngFor="let time of endTimeOptions" (click)="selectEndTime(time)">{{ time }}
+                      </div>
+                    </div>
+                  </div>
+           
+          </form>
+          </div>
+
+ 
+        <div class="col-xl-1 col-lg-2 col-md-4 ">
+          
+          <button style="margin-top: 35px;" class="btn btn-primary " (click)="filterCars()">Modify</button>
+        </div>
+ 
+  
+        <div class="col-lg-5 col-xl-5 col-md-6 col-sm-12">
+          
+          <div class="input-group" style="margin-top: 28px; margin-left: -12px;">
+            <input type="text" class="form-control " [(ngModel)]="searchText" (input)="searchCars()"
+              style="padding: 20px;" placeholder="Search Your Car here...">
+            <div class="input-group-append">
+              <button class="btn btn-black text-uppercase px-3"> <i
+                  class=" text-primary fa fa-2x fa-search" style="font-size: 16px;"></i></button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="justify-content-end">
+
+      </div>
+      <form [formGroup]="searchForm[0]">
+        <div class="car-list">
+          <div class="car rent-item" *ngFor="let car of data; let i = index">
+            <h2>{{ car.Modal }}</h2>
+            <img src="{{ car.Image }}" alt="{{ car.Modal }} Image">
+            <div>
+              <button class="btn-primary btnClass"  (click)="EditCar(i)"> <i class="fas fa-edit"></i> </button>
+              <button class="btn-primary btnClass"  (click)="deleteCar(car.CarID)"><i class="fas fa-trash"></i></button> &nbsp;
+              <span *ngIf="car.status === 'Sold Out' && car.showRentOutButton && !car.showBookNowTemporarily"
+              class="sold-out"><i class='fas fa-times-circle' style='font-size:24px;color:black' (click)="DeleteBooking(i)"></i></span>
+            </div>
+            <div class="car-details">
+              <p><i class="fas fa-gas-pump text-primary"></i> {{ car.Fuel }}</p>
+              <p><i class="fas fa-cog text-primary"></i> {{ car.Transmission }}</p>
+              <p><i class="fas fa-chair text-primary"></i> {{ car.Seater }}</p>
+            </div>
+            <div class="car-rate">
+              <p *ngIf="car.status !== 'Sold Out'">
+                <span class="rupee-symbol" *ngIf="car.Rate !== null && car.Rate > 0">₹</span>
+                {{ car.Rate }}
+              </p>
+              <button *ngIf="car.status !== 'Sold Out' && car.showRentOutButton && !car.showBookNowTemporarily"
+                (click)="bookCar(i)" class="btn btn-success">Book Now</button>
+              <span *ngIf="car.status === 'Sold Out' && car.showRentOutButton && !car.showBookNowTemporarily"
+                class="sold-out">Rent Out</span>
+              <button *ngIf="car.showBookNowTemporarily" class="btn btn-success" (click)="bookCar(i)">Book Now</button>
+
+            </div>
+            <div class="gap"></div>
+        
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{ display: displayStyle }" id="date">
+  <div class="modal-fullscreen" role="document">
+    <form [formGroup]="searchForm">
+      <div class="modal-content">
+        <div class="justify-content-end" style="text-align: right;">
+          <button type="button" class="btn btn-danger custom-close-button" (click)="closeStartTimee()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="row">
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <label for="start-date">Start Date</label>
+            <input type="date" id="start-date" name="start-date" formControlName="PickupDate" class="form-control"
+              [(ngModel)]="selectedPickupDate" [min]="getCurrentDate()" (change)="updateAvailableTimes()">
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <label for="start-time">Start Time</label>
+            <div class="dropdown time-picker" (click)="onTimePickerClick($event)">
+              <input type="text" formControlName="StartTime" [(ngModel)]="selectedStartTime" class="form-control"
+                (click)="showStartTimeOptionsModal = !showStartTimeOptionsModal">
+              <div class="dropdown-menu popup-card" *ngIf="showStartTimeOptionsModal">
+                <div class="cardse" *ngFor="let time of timeOptions" (click)="selectStartTime(time)">{{ time }}</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12" >
+            <label for="end-date">End Date</label>
+            <input type="date" id="end-date" name="end-date" formControlName="DropupDate" class="form-control"
+              [(ngModel)]="selectedDropoffDate" [min]="getMinEndDate()">
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <label for="end-time">End Time</label>
+            <div class="dropdown time-picker" (click)="onTimePickerClick($event)">
+              <input type="text" formControlName="EndTime" (click)="showEndTimeOptionsModal = !showEndTimeOptionsModal"
+                class="form-control" [(ngModel)]="selectedEndTime">
+              <div class="dropdown-menu popup-card" *ngIf="showEndTimeOptionsModal">
+                <div class="cardse" *ngFor="let time of endTimeOptions" (click)="selectEndTime(time)">{{ time }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <button type="button" class="btn btn-success" (click)="closeStartTime()">Book Now</button>
+
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<div *ngIf="selectedCar" class="modal1" tabindex="-1" role="dialog" [ngStyle]="{ display: Editdisplay }" id="date">
+  <div class="modal-fullscreen1" role="document">
+    <form [formGroup]="searchForm">
+      <div class="modal-content1">
+        <div class="justify-content-end" style="text-align: right;">
+          <button type="button" class="btn btn-danger custom-close-button" (click)="closeEdit()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="row">
+          <div>
+            <label>Brand</label>
+            <input type="text" class="form-control" formControlName="Brand">
+          </div>
+          <div>
+            <label>Modal</label>
+            <input type="text" class="form-control" formControlName="Modal">
+          </div>
+          <div>
+            <label>Seater</label>
+            <input type="text" class="form-control" formControlName="Seater">
+          </div>
+          <div>
+            <label>Fuel</label>
+            <input type="text" class="form-control" formControlName="Fuel">
+          </div>
+          <div>
+            <label>Transmission</label>
+            <input type="text" class="form-control" formControlName="Transmission">
+          </div>
+          <div>
+            <label>First Range Price</label>
+            <input type="text" class="form-control" formControlName="FirstRangePrice">
+          </div>
+          <div>
+            <label>Second Range Price</label>
+            <input type="text" class="form-control" formControlName="SecondRangePrice">
+          </div>
+          <div>
+            <label>Third Range Price</label>
+            <input type="text" class="form-control" formControlName="ThirdRangePrice">
+          </div>
+          <div>
+            <label>Monthly Price</label>
+            <input type="text" class="form-control" formControlName="MonthlyPrice">
+          </div>
+          <div>
+            <label>Security Deposit</label>
+            <input type="text" class="form-control" formControlName="SecurityDeposit">
+          </div>
+          
+      
+         
+        </div>
+        <div>
+          <button class="btn btn-success" (click)="saveedit()">Save</button>
+
+
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{ display: Bookingdisplay }" id="date">
+  <div class="modal-fullscreen" role="document">
+    <form [formGroup]="searchForm">
+      <div class="modal-content">
+        <div class="justify-content-end" style="text-align: right;">
+          <button type="button" class="btn btn-danger custom-close-button" (click)="closeBooking()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <table class="booking-table">
+          <thead>
+            <tr>             
+              <th>Booking Date</th>
+              <th>Booking Time</th>
+              <th>Ending Date</th>
+              <th>Ending Time</th>            
+              <th>Delete</th>           
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let booking of bookings">            
+              <td>{{ booking.BookingDate | date:'dd-MM-yyyy' }}</td>
+              <td>{{ booking.BookingTime  }}</td>
+              <td>{{ booking.EndingDate | date:'dd-MM-yyyy'  }}</td>
+              <td>{{ booking.EndingTime }}</td>            
+              <td><i class="fa fa-trash" style="color: red; cursor: pointer;"  (click)="deleteBookingTable()"></i></td>              
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    </form>
+  </div>
+</div>

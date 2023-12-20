@@ -1,111 +1,452 @@
+<div class="container-fluid py-5">
+  <div class="container pt-2 pb-2">
+    <div class="row mt-3">
+      <div class="col-xl-2 col-lg-2 d-none d-sm-block">
+        <div class="clear">
+          <span (click)="toggleFilters()" style="margin-left: -10px;">
+            <i class="fa-solid fa-bars text-primary"></i> <b> FILTERS </b>
+          </span>
 
-<!-- <div class="search-container">
-    <input type="text" [(ngModel)]="searchTerm" placeholder="Enter skills, designation, companies..."
-        class="search-input">
-    <input type="text" [(ngModel)]="searchLocation" placeholder="Enter location..." class="search-location">
-    <select class="select-experience" [(ngModel)]="selectedExperience">
-        <option value="" disabled selected>Select Experience</option>
-        <option *ngFor="let exp of experience" [value]="exp">{{exp}}</option>
-    </select>
-    <button class="search-button">Search</button>
-</div> -->
-
-<div class="container">
-    <!-- Filters column -->
-    <div class="filters">
-        <!-- Skills Filter -->
-        <div class="filter-card">
-            <div class="filter-title">Skills</div>
-            <input type="search" placeholder="Search skills...">
-            <div class="checkbox-group">
-                <!-- Add or remove skills here -->
-                <label><input type="checkbox" value="frontend developer"
-                        (change)="handleCheckbox('selectedSkills', 'frontend developer', $event)"> frontend
-                    developer</label>
-                <label><input type="checkbox" value="backend developer"   (change)="handleCheckbox('selectedSkills', 'backend developer', $event)"> backend developer</label>
-                
-                <label><input type="checkbox" value="data scientist"   (change)="handleCheckbox('selectedSkills', 'data scientist', $event)"> data scientist</label>
-                
-                <label><input type="checkbox" value="android developer"   (change)="handleCheckbox('selectedSkills', 'android developer', $event)"> android developer</label>
-                <!-- ... -->
-            </div>
+          <label for="clear-filters" (click)="clearFilters()" style="cursor: pointer"><i
+              class="fa-solid fa-eraser text-primary"></i>
+            <b> CLEAR </b></label>
         </div>
 
-        <!-- Experience Filter -->
+        <div class="fflex" [ngClass]="{ 'filters-visible': showFilters }">
+          <!-- Seating Capacity filter -->
+          <div class="filter">
+            <label class="bold-label">Seating Capacity:</label>
+            <div class="seating-capacity-checkboxes">
+              <div class="checkbox-label space1" *ngFor="let seating of seatings">
+                <input type="checkbox" [(ngModel)]="selectedSeatingCapacities[seating]" (change)="filterCars()" />
+                &nbsp;{{ seating }}
+              </div>
+            </div>
+          </div>
 
+          <!-- Transmission Type filter -->
+          <div class="filter">
+            <label class="bold-label">Transmission Type:</label>
+            <div class="transmission-checkboxes">
+              <div class="checkbox-label space1" *ngFor="let transmission of transmissions">
+                <input type="checkbox" [(ngModel)]="selectedTransmissionTypes[transmission]" (change)="filterCars()" />
+                &nbsp;{{ transmission }}
+              </div>
+            </div>
+          </div>
 
+          <!-- Fuel Type filter -->
+          <div class="filter">
+            <label class="bold-label">Fuel Type:</label>
+            <div class="fuel-type-checkboxes">
+              <div class="checkbox-label space1" *ngFor="let fuel of fuels">
+                <input type="checkbox" [(ngModel)]="selectedFuelTypes[fuel]" (change)="filterCars()" />
+                &nbsp;{{ fuel }}
+              </div>
+            </div>
+          </div>
 
-        <!-- Range slider for experience -->
+          <!-- Segment filter -->
+          <div class="filter">
+            <label class="bold-label">Segment:</label>
+            <div class="segment-checkboxes">
+              <div class="checkbox-label space1" *ngFor="let segment of segments">
+                <input type="checkbox" [(ngModel)]="selectedSegments[segment]" (change)="filterCars()" />
+                &nbsp;{{ segment }}
+              </div>
+            </div>
+          </div>
 
+          <!-- Brand filter -->
+          <div class="filter">
+            <label class="bold-label">Brand:</label>
+            <div class="brand-checkboxes">
+              <div class="checkbox-label space1" *ngFor="let brand of brands">
+                <input type="checkbox" [(ngModel)]="selectedBrands[brand]" (change)="filterCars()" />
+                &nbsp;{{ brand }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <!-- <div class="filter-card">
-            <div class="filter-title">Experience</div>
-            <mat-slider min="0" max="50">
-                <input value="0" [(ngModel)]="leftValue" [max]="rightValue" [min]="minValue" matSliderStartThumb [ngClass]="'custom-slider-thumb'">
-                <input value="50" [(ngModel)]="rightValue" [min]="leftValue" [max]="maxValue" matSliderEndThumb [ngClass]="'custom-slider-thumb'">
-            </mat-slider>
-            <p>Selected Experience: {{leftValue}} - {{rightValue}} Years</p>
-        </div> -->
-        
+      <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10">
+        <div class="col-12 d-sm-none" style="
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+          ">
+          <div *ngIf="!isPopupVisible">
+            <button class="contact-button blink" (click)="openPopup()">
+              <i class="fa-solid fa-calendar-alt text-primary"></i><b> DATE & TIME </b>
+            </button>
+          </div>
 
-
-
-
-
-
-
-
-
-
-        <!-- Salary Filter -->
-        <!-- <div class="filter-card">
-            <div class="filter-title">Salary</div>
-            <mat-slider min="0" max="50">
-                <input value="0" [(ngModel)]="salaryLeftValue" [max]="salaryRightValue" [min]="salaryMinValue"
-                    matSliderStartThumb>
-                <input value="50" [(ngModel)]="salaryRightValue" [min]="salaryLeftValue" [max]="salaryMaxValue"
-                    matSliderEndThumb>
-            </mat-slider>
-            <p>Selected Salary Range: ₹{{salaryLeftValue}} - ₹{{salaryRightValue}} LPA</p>
-        </div> -->
-
-        <!-- Location Filter -->
-        <div class="filter-card">
-            <div class="filter-title">Location</div>
-            <input type="search" placeholder="Search location...">
-            <div class="checkbox-group">
-                <div *ngFor="let location of locations">
-                    <label><input type="checkbox" [value]="location.toLowerCase()"
-                            (change)="handleCheckbox('selectedLocations', location.toLowerCase(), $event)">
-                        {{location}}</label>
+          <div *ngIf="isPopupVisible" class="popup">
+            <div style="text-align: right; font-size: 40px; padding: 8px">
+              <span class="close1" (click)="closePopup()">&times;</span>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-4">
+              <span class="input-group-text" id="basic-addon1">Start Date
+              </span>
+              <div class="date mb-3" id="date" data-target-input="nearest">
+                <input type="date" class="form-control" [(ngModel)]="selectedPickupDate" [min]="getCurrentDate()"
+                  (change)="updateAvailableTimes()" />
+              </div>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-4">
+              <span class="input-group-text" id="basic-addon1">Start time</span>
+              <input type="text" class="form-control" [(ngModel)]="selectedStartTime"
+                (click)="showStartTimeOptions = !showStartTimeOptions" />
+              <div class="dropdown-menu popup-card" *ngIf="showStartTimeOptions">
+                <div class="cardse" *ngFor="let time of timeOptions" (click)="selectStartTime(time)">
+                  {{ time }}
                 </div>
+              </div>
             </div>
+
+            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-4">
+              <span class="input-group-text" id="basic-addon1">End Date </span>
+              <div class="date mb-3" id="date" data-target-input="nearest">
+                <input type="date" class="form-control" [(ngModel)]="selectedDropoffDate"  [min]="selectedPickupDate"/>
+              </div>
+            </div>
+
+            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-4">
+              <span class="input-group-text" id="basic-addon1">End time</span>
+              <div class="time-picker">
+                <input type="text" class="form-control" (click)="showEndTimeOptions = !showEndTimeOptions"
+                  [(ngModel)]="selectedEndTime"  />
+                <div class="dropdown-menu popup-card" *ngIf="showEndTimeOptions">
+                  <div class="cardse" *ngFor="let time of endTimeOptions" (click)="selectEndTime(time)">
+                    {{ time }}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-1 col-lg-1 col-md-3 col-sm-4 col-xs-4">
+              <h1 style="margin-top: 30px"></h1>
+              <button style="color: black; font-weight: 500; width: 100%" class="btn btn-primary mt-2"
+                (click)="modifySearch()" (click)="closePopup()" [disabled]="!canModify">
+                Modify
+              </button>
+            </div>
+          </div>
+
+          <button class="contact-button blink" (click)="openPopup1()">
+            <i class="fa-solid fa-bars text-primary"></i> <b> FILTERS </b>
+          </button>
         </div>
-    </div>
 
-    <!-- Jobs column -->
-    <div class="jobs">
-        <div *ngFor="let job of filteredJobs" class="job-card">
-            <div class="icon-container">
-                <i class="fas fa-briefcase fa-2x"></i>
+        <div *ngIf="isPopupVisible1" class="popup">
+          <span class="close close1" style="margin-top: 20px; margin-right: 20px; font-size: 30px"
+            (click)="closePopup1()">&times;</span>
+
+          <h3 style="margin-top: 20px; padding: 5px">FILTERS CAR</h3>
+
+          <div class="mobile-filters-popup">
+            <div class="clear">
+              <label></label>
+              <label for="clear-filters" (click)="clearFilters()" style="cursor: pointer"><i
+                  class="fa fa-eraser text-primary"></i>CLEAR</label>
             </div>
-            <h3 class="job-title">{{ job.title }}</h3>
-            <h4 class="company-name">
-                <i class="fas fa-building"></i> {{ job.company }}
-            </h4>
+            <h3 for="sort-filter" class="bold-label">Sort by:</h3>
 
+            <div class="clear">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="lowToHigh" name="priceSort" (click)="
+                    sortCarsLowToHigh(); selectOption('Price: Low to High')
+                  " />
+                <label class="form-check-label" for="lowToHigh">Price: Low to High</label>
+              </div>
 
-            <div class="job-meta">
-                <span><i class="fas fa-map-marker-alt"></i> {{ job.location }}</span>
-                <span><i class="fas fa-clock"></i> {{ job.experience }}</span>
-                <span><i class="fas fa-wallet"></i> {{ job.salary }}</span>
-                <span><i class="fas fa-user-tie"></i> {{ job.type }}</span>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="highToLow" name="priceSort" (click)="
+                    sortCarsHighToLow(); selectOption('Price: High to Low')
+                  " />
+                <label class="form-check-label" for="highToLow">Price: High to Low</label>
+              </div>
+
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="availabilitySort" name="priceSort" (click)="
+                    sortCarsAvailability();
+                    selectOption('Car: Show By Availability')
+                  " />
+                <label class="form-check-label" for="availabilitySort">Car: Show By Availability</label>
+              </div>
             </div>
 
-            <div class="job-footer">
-                <span><i class="fas fa-calendar-alt"></i> Posted on: {{ job.postedOn | date: 'shortDate' }}</span>
-                <button class="btn custom-apply-btn" >Apply</button>
+            <!-- Seating Capacity filter -->
+            <div class="filtersa">
+              <h3 class="bold-label">Seating Capacity:</h3>
+              <div class="seating-options">
+                <div *ngFor="let seating of seatings" class="filter-option">
+                  <input type="checkbox" [(ngModel)]="selectedSeatingCapacities[seating]" (change)="filterCars()" />
+                  {{ seating }}
+                </div>
+              </div>
             </div>
+
+            <!-- Transmission Type filter -->
+            <div class="filtersa">
+              <h3 class="bold-label">Transmission Type:</h3>
+              <div class="seating-options">
+                <div *ngFor="let transmission of transmissions" class="filter-option">
+                  <input type="checkbox" [(ngModel)]="selectedTransmissionTypes[transmission]"
+                    (change)="filterCars()" />
+                  {{ transmission }}
+                </div>
+              </div>
+            </div>
+            <!-- Fuel Type filter -->
+            <div class="filtersa">
+              <h3 class="bold-label">Fuel Type:</h3>
+              <div class="fuel-checkboxes">
+                <div class="filter-option" *ngFor="let fuel of fuels">
+                  <input type="checkbox" [(ngModel)]="selectedFuelTypes[fuel]" (change)="filterCars()" />
+                  {{ fuel }}
+                </div>
+              </div>
+            </div>
+
+            <!-- Segment filter -->
+            <div class="filtersa">
+              <h3 class="bold-label">Segment:</h3>
+              <div class="segment-type-checkboxes">
+                <div class="filter-option" *ngFor="let segment of segments">
+                  <input type="checkbox" [(ngModel)]="selectedSegments[segment]" (change)="filterCars()" />
+                  {{ segment }}
+                </div>
+              </div>
+            </div>
+
+            <!-- Brand filter -->
+            <div class="filtersa">
+              <h3 class="bold-label">Brand:</h3>
+              <div class="brand-type-checkboxes">
+                <div class="filter-option" *ngFor="let brand of brands">
+                  <input type="checkbox" [(ngModel)]="selectedBrands[brand]" (change)="filterCars()" />
+                  {{ brand }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- </div> -->
+          <div class="col-xl-12 col-lg-12 col-md-12 col-xs-12 col-sm-12">
+            <h3 style="margin-top: 10px">Km Plans</h3>
+            <div class="button-group container1">
+              <label class="btn-grey" [class.clicked]="selectedPlan === 300">
+                <input type="radio" name="distance" (change)="price(300)" checked />
+                300Km
+              </label>
+              <label class="btn-grey" [class.clicked]="selectedPlan === 450">
+                <input type="radio" name="distance" (change)="price(450)" />
+                450Km
+              </label>
+              <label class="btn-grey" [class.clicked]="selectedPlan === 600">
+                <input type="radio" name="distance" (change)="price(600)" />
+                600Km
+              </label>
+              <label class="btn-grey" [class.clicked]="selectedPlan === 5000">
+                <input type="radio" name="distance" (change)="price(5000)" />
+                Monthly
+              </label>
+            </div>
+          </div>
+
+          <button (click)="closePopup1()" style="margin-top: 10px; width: 80%; margin: 10%"
+            class="btn btn-primary btn-block">
+            Apply
+          </button>
         </div>
+        <div class="col-xl-5 col-lg-5 px-2 d-sm-none"
+          style="text-align: center; margin-top: -20px; margin-bottom: 10px">
+          <br />
+          <span>( Total Time: {{ totalTime }} )</span>
+        </div>
+
+        <div class="d-none d-sm-block">
+          <div class="tab-container">
+            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-4">
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1">
+                  <i class="fas fa-map-marker-alt"></i>&nbsp; Location
+                </span>
+
+                <div class="date mb-3" id="date" data-target-input="nearest">
+                  <input type="text" class="form-control" [(ngModel)]="selectedStateValue"
+                    placeholder="Enter Location" />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-4">
+              <span class="input-group-text" id="basic-addon1">Start Date
+              </span>
+              <div class="date mb-3" id="date" data-target-input="nearest">
+                <input type="date" class="form-control" [(ngModel)]="selectedPickupDate" [min]="getCurrentDate()"
+                  (change)="updateAvailableTimes()" />
+              </div>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-4">
+              <span class="input-group-text" id="basic-addon1">Start time</span>
+              <div class="dropdown time-picker" (click)="onTimePickerClick($event)">
+                <input type="text" class="form-control" [(ngModel)]="selectedStartTime"
+                  (click)="showStartTimeOptions = !showStartTimeOptions" />
+                <div class="dropdown-menu popup-card" *ngIf="showStartTimeOptions">
+                  <div class="cardse" *ngFor="let time of timeOptions" (click)="selectStartTime(time)">
+                    {{ time }}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-4">
+              <span class="input-group-text" id="basic-addon1">End Date </span>
+              <div class="date mb-3" id="date" data-target-input="nearest">
+                <input type="date" class="form-control" [(ngModel)]="selectedDropoffDate" [min]="selectedPickupDate"/>
+              </div>
+            </div>
+
+            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-4">
+              <span class="input-group-text" id="basic-addon1">End time</span>
+              <div class="dropdown time-picker" (click)="onTimePickerClick($event)">
+                <input type="text" class="form-control" (click)="showEndTimeOptions = !showEndTimeOptions"
+                  [(ngModel)]="selectedEndTime"  />
+                <div class="dropdown-menu popup-card" *ngIf="showEndTimeOptions">
+                  <div class="cardse" *ngFor="let time of endTimeOptions" (click)="selectEndTime(time)">
+                    {{ time }}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-1 col-lg-1 col-md-3 col-sm-4 col-xs-4">
+              <h1 style="margin-top: 25px"></h1>
+              <button style="color: black; font-weight: 500" class="btn btn-primary mt-2" (click)="modifySearch()"
+                [disabled]="!canModify">
+                Modify
+              </button>
+            </div>
+          </div>
+
+          <!-- <div class="tab-container">
+            <div class="col-xl-3 col-lg-3 col-sm-4 col-xs-6 px-2">
+              <br />
+              <label style="cursor: pointer;" for="sort-filter" class="filter-icon" (click)="toggleDropdown()">
+                Sort by:
+                <span><i class="fas fa-caret-down"></i></span>
+              </label>
+              <div *ngIf="!isDropdownOpen && selectedSortingOption">
+                {{ selectedSortingOption }}
+              </div>
+              <div class="card" *ngIf="isDropdownOpen">
+                <label style="cursor: pointer;" for="lowToHigh" (click)="
+                    sortCarsLowToHigh(); selectOption('Price: Low to High')
+                  ">Price: Low to High</label>
+                <label style="cursor: pointer;" for="highToLow" (click)="
+                    sortCarsHighToLow(); selectOption('Price: High to Low')
+                  ">Price: High to Low</label>
+                <label style="cursor: pointer;" for="highToLow" (click)="
+                    sortCarsAvailability();
+                    selectOption('Car:Show By Availability')
+                  ">Car: Show By Availability</label>
+              </div>
+            </div> -->
+
+
+            <div class="tab-container">
+              <div class="col-xl-3 col-lg-3 col-sm-4 col-xs-6 px-2">
+                <br />
+                <div class="dropdown" (click)="toggleDropdown()">
+                  <label style="cursor: pointer;" for="sort-filter" class="filter-icon">
+                    Sort by:&nbsp;
+                  
+                    <span *ngIf="selectedSortingOption">{{ selectedSortingOption }}</span> &nbsp;
+                    <span><i class="fas fa-caret-down"></i></span>
+                  </label>
+            
+                  <div class="card dropdown-menu" *ngIf="isDropdownOpen" [ngStyle]="{'position': 'absolute', 'z-index': 1000}" (click)="$event.stopPropagation()">
+                    <label style="cursor: pointer;" for="lowToHigh" (click)="sortCarsLowToHigh(); selectOption('Price: Low to High'); $event.stopPropagation()">Price: Low to High</label>
+                    <label style="cursor: pointer;" for="highToLow" (click)="sortCarsHighToLow(); selectOption('Price: High to Low'); $event.stopPropagation()">Price: High to Low</label>
+                    <label style="cursor: pointer;" for="availability" (click)="sortCarsAvailability(); selectOption('Car: Show By Availability'); $event.stopPropagation()">Car: Show By Availability</label>
+                    <!-- Add additional features as needed -->
+                  </div>
+                </div>
+              </div>
+
+            <div class="col-xl-5 col-lg-5 px-2">
+              <br />
+              <span>( Total Time: {{ totalTime }} )</span>
+            </div>
+
+            <div class="col-xl-4 col-sm-12">
+              <div class="button-group container1">
+                <label class="btn-grey" [class.clicked]="selectedPlan === 300">
+                  <input type="radio" name="distance" (change)="price(300)" checked />
+                  300Km
+                </label>
+                <label class="btn-grey" [class.clicked]="selectedPlan === 450">
+                  <input type="radio" name="distance" (change)="price(450)" />
+                  450Km
+                </label>
+                <label class="btn-grey" [class.clicked]="selectedPlan === 600">
+                  <input type="radio" name="distance" (change)="price(600)" />
+                  600Km
+                </label>
+                <label class="btn-grey" [class.clicked]="selectedPlan === 5000">
+                  <input type="radio" name="distance" (change)="price(5000)" />
+                  Monthly
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="car-list">
+          <div class="car rent-item" *ngFor="let car of data">
+            <h2>{{ car.Modal }}</h2>
+            <img src="{{ car.Image }}" alt="{{ car.Modal }} Image" />
+            <div class="car-details">
+              <p><i class="fas fa-gas-pump text-primary"></i> {{ car.Fuel }}</p>
+              <p>
+                <i class="fas fa-cog text-primary"></i> {{ car.Transmission }}
+              </p>
+              <p><i class="fas fa-chair text-primary"></i> {{ car.Seater }}</p>
+            </div>
+            <div class="car-rate">
+              <p *ngIf="car.status !== 'Sold Out'  || !car.showRentOutButton || car.showBookNowTemporarily">
+                <span class="rupee-symbol" *ngIf="car.Rate !== null && car.Rate > 0">₹</span>
+                {{ car.Rate || car.FirstRangePrice}}
+              </p>
+              <!-- <span> {{ car|json }}</span>  -->
+              <!-- <button *ngIf="car.status !== 'Sold Out'" (click)="bookNow(car)"
+                                style="color: black; font-weight: bold">
+                                Book Now
+                            </button>
+                            <span *ngIf="car.status === 'Sold Out'" class="sold-out">Rent Out</span> -->
+              <button *ngIf="car.status !== 'Sold Out' && car.showRentOutButton && !car.showBookNowTemporarily"
+                class="btn btn-success" (click)="bookNow(car)"> Book Now
+              </button>
+              <span *ngIf="
+                  car.status === 'Sold Out' &&
+                  car.showRentOutButton &&
+                  !car.showBookNowTemporarily
+                " class="sold-out">Rent Out</span>
+              <button *ngIf="car.showBookNowTemporarily" (click)="bookNow(car)">
+                Book Now   
+              </button>
+            </div>
+            <div class="gap"></div>
+            <p>
+              <span class="asterisk-text">*</span> Exclude Prices of Fuel & Toll
+            </p>
+            <b>* FasTag Available</b>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>

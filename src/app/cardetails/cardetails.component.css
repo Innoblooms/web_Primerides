@@ -1,0 +1,111 @@
+
+/* Initially hide the checkbox */
+.hidden-toggle {
+  display: none;
+}
+
+p{
+  font-size: 14px;
+}
+
+.secondary{
+  background: rgb(3,3,36);
+  /* background: var(--secondary); */
+ 
+}
+span, li{
+  color: white;
+}
+
+/* Hide the explanation */
+.explanation {
+  display: none;
+}
+
+/* When the checkbox is checked, display the explanation */
+.hidden-toggle:checked + label + .explanation {
+  display: block;
+}
+
+
+.text-primary {
+  color: #F77D0A !important;
+}
+
+.btn-primary {
+  background-color: #F77D0A !important;
+  border-radius: 12px !important;
+  border: none !important;
+  font-weight: 700 !important;
+}
+
+
+.bg-primary {
+  background-color: #F77D0A !important;
+}
+
+
+
+
+
+/* Default styles for input[type="text"] */
+input[type="text"], input[type="email"] {
+  margin: 4px;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  width: 100%; /* Make inputs fill the entire width */
+}
+
+/* Remove border on focus */
+input[type="text"]:focus, input[type="email"]:focus {
+  border: none !important;
+}
+
+/* Responsive styles */
+@media (min-width: 576px) {
+  /* Medium devices (tablets, 576px and up) */
+  input[type="text"],input[type="email"] {
+    width: auto; /* Revert width to default for larger screens */
+  }
+}
+
+/* Additional styles for smaller screens if needed */
+@media (max-width: 767px) {
+  /* Small devices (phones, 576px and down) */
+  .col-4 {
+    flex: 0 0 100%; /* Make columns take up the full width on smaller screens */
+    max-width: 100%; /* Ensure columns don't exceed 100% width */
+  }
+}
+
+
+.error-border {
+  border: 2px solid red;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+
+
+.backbutton {
+  cursor: pointer;
+  display: inline-block;
+  padding-left: 10px;
+  transition: color 0.3s;
+  font-size: 14px;
+  font-weight: bold;
+}
+.backbutton:hover {
+  color: #F77D0A; /* Change to the color you prefer on hover */
+}
+
+
+@media only screen and (min-width: 720px) {
+  .container-fluid{
+     margin-top: -60px;
+  }
+ }
+ .error-field {
+  border: 1px solid red;
+}

@@ -1,0 +1,83 @@
+<!-- Contact Start -->
+<div class="container-fluid py-5">
+    <div class="container pt-4 pb-3">
+        <h1 class="display-1 text-primary text-center"><i class="fa fa-2x fa-solid fa-people-arrows"></i></h1>
+        <h1 class="display-1 text-uppercase text-center">Contact Us</h1>
+        <div class="row justify-content-center">
+
+            <img class="w-75 mb-4" src="assets/image/about.png" alt="">
+        </div>
+        <form [formGroup]="form" (submit)="send()">
+            <div class="row">
+                <div class="col-lg-7 mb-2">
+                    <div class="contact-form bg-light mb-4" style="padding: 30px;">
+
+                        <div class="row">
+                            <div class="col-6 form-group">
+                                <input type="text" class="form-control p-4" placeholder="Name"
+                                    formControlName="from_name" required="required">
+                            </div>
+                            <div class="col-6 form-group">
+                                <input type="email" class="form-control p-4" placeholder="Email"
+                                    required="required" formControlName="from_email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control p-4" placeholder="Mobile No."
+                            formControlName="phoneno" required="required">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control py-3 px-4" rows="5" placeholder="Message" required="required"
+                                formControlName="message"></textarea>
+                        </div>
+
+                        <div>
+                            <button class="btn btn-primary py-2 px-5" type="submit" style="color: black;"> <i
+                              class="fa fa-envelope flex-shrink-0 mr-3"></i>Send Message</button>
+                      </div>
+                   
+                   
+
+                    </div>
+                </div>
+                <div class="col-lg-5 mb-2">
+                    <div class="secondary d-flex flex-column justify-content-center px-5 mb-4"
+                        style="height: 435px;">
+                        <div class="d-flex mb-3 py-2">
+                            <i class="fa fa-2x fa-map-marker-alt golden flex-shrink-0 mr-3"></i>
+                            <div class="mt-n1">
+                                <h3 class="golden text-uppercase">Head Office</h3>
+                                <p>S17 Aditya Mall, Aditya City Center,<br> Indirapuram, Ghaziabad, UP</p>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <i class="fa fa-2x fa-mobile-alt golden flex-shrink-0 mr-3"></i>
+                            <div class="mt-n1">
+                                <h3 class="golden text-uppercase">Booking Contact</h3>
+                                <p>+91 8800003301 <br> +91 8800003302</p>
+                            </div>
+                        </div>
+                        <!-- <div class="d-flex mb-3">
+                            <i class="fa fa-2x fa-map-marker-alt golden flex-shrink-0 mr-3"></i>
+                            <div class="mt-n1">
+                                <h3 class="golden text-uppercase">Branch Office</h3>
+                                <p>S17 Aditya Mall, Aditya City Center, Indirapuram, Ghaziabad, UP</p>
+                            </div>
+                        </div> -->
+
+                        <div class="d-flex mb-3">
+                            <i class="fa fa-2x fa-envelope-open golden flex-shrink-0 mr-3"></i>
+                            <div class="mt-n1">
+                                <h3 class="golden text-uppercase">Customer Service</h3>
+                                <a class="text-white"  href="mailto:info@primerides.in">info@primerides.in</a>
+                            </div>
+                        </div>
+                       
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Contact End -->

@@ -1,0 +1,155 @@
+<header>
+
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid position-relative nav-bar p-0">
+        <div class="position-relative px-lg-0" style="z-index: 9;">
+            <nav class="navbar navbar-expand-lg secondary navbar-dark py-3 py-lg-0 pl-3 pl-lg-5">
+                <a routerLink="" class="navbar-brand">
+                    <img class="image" src="/assets/image/logo.png" alt="Primerides Logo">
+                </a> 
+             
+                <!-- <button type="button" class="navbar-toggler" (click)="toggleNavbar()">
+                    <span class="navbar-toggler-icon"></span>
+                </button> -->
+                <button type="button" class="custom-navbar-toggler navbar-toggler" style="background-color: transparent; color: white; margin-right: 20px;" (click)="toggleNavbar()">
+                    <span *ngIf="!navbarCollapsed"><i class="fas fa-bars"></i></span>
+                    <i *ngIf="navbarCollapsed" class="fas fa-times"></i>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between px-3" [ngClass]="{'show': isNavbarOpen}">
+                    <div class="navbar-nav ml-auto py-0">
+                       
+                        <a routerLink="" [class.active]="activeLink === ''" class="nav-item nav-link"
+                            (click)="setActiveLink('')" (click)="toggleNavbar()">Home</a>
+                        <a routerLink="/aboutus" [class.active]="activeLink === '/aboutus'" class="nav-item nav-link"
+                            (click)="setActiveLink('/aboutus')" (click)="toggleNavbar()">About</a>
+                        <a routerLink="/fleet" [class.active]="activeLink === '/fleet'" class="nav-item nav-link"
+                            (click)="setActiveLink('/fleet')" (click)="toggleNavbar()">Fleet</a>
+                        <a routerLink="/faq" [class.active]="activeLink === '/faq'" class="nav-item nav-link"
+                            (click)="setActiveLink('/faq')" (click)="toggleNavbar()">FAQs</a>
+                        <a routerLink="/contact-us" [class.active]="activeLink === '/contact-us'"
+                            class="nav-item nav-link" (click)="setActiveLink('/contact-us')"
+                            (click)="toggleNavbar()">Contact</a>
+                        <a routerLink="/terms" [class.active]="activeLink === '/terms'" class="nav-item nav-link"
+                            (click)="setActiveLink('/terms')" (click)="toggleNavbar()">T&C</a>
+
+
+
+                        <a *ngIf="!isAuthenticated; else loggedIn" class="nav-item nav-link custom-link curser"
+                            (click)="openSidebar()" (click)="toggleNavbar()">
+                            <i class="fas fa-user mr-2 custom-icon custom-icon1"></i>
+                        </a>
+
+                        <!-- Import necessary Bootstrap styles and scripts -->
+
+                        <ng-template #loggedIn>
+                            <div ngbDropdown class="d-inline-block curser" #dropdown="ngbDropdown">
+                                <span *ngIf="isAuthenticated" class="nav-item nav-link cursor dropdown-toggle"
+                                    id="dropdownUser" ngbDropdownToggle routerLink="/permission">
+                                    <i class="fas fa-user mr-2 custom-icon custom-icon1"></i> {{ userName }}
+                                </span>
+                                <div ngbDropdownMenu aria-labelledby="dropdownUser">
+                                    <!-- <a *ngIf="!isAdmin()" class="dropdown-item" href="#">
+                                        <i class="fas fa-user some"></i> My Profile
+                                    </a>
+                                    <a *ngIf="!isAdmin()" class="dropdown-item" href="#">
+                                        <i class="fas fa-calendar-alt some"></i> My Booking
+                                    </a>
+                                    <a *ngIf="isAdmin()" class="dropdown-item" routerLink="/permission">
+                                        <i class="fas fa-user-shield"></i>
+                                        Admin
+                                    </a> -->
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" routerLink="/" (click)="logout()">
+                                        <i class="fas fa-sign-out-alt some"></i> Logout
+                                    </a>
+                                </div>
+                            </div>
+
+                        </ng-template>
+
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="sidebar" [ngClass]="{'show': isSidebarOpen}">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">{{ isLoginForm ? '' : '' }}</h5>
+            <button type="button" class="custom btn-close" data-bs-dismiss="offcanvas" (click)="closeSidebar()"
+                aria-label="Close"></button>
+        </div>
+        <div class="custom offcanvas-body">
+            <h2 class="text-center">{{ isLoginForm ? 'Log in' : 'Sign Up' }}</h2>
+
+            <!-- Login Form -->
+            <form *ngIf="isLoginForm" [formGroup]="loginForm" (ngSubmit)="login()">
+                <div class="custom form-group">
+                    <input type="email" class="custom form-control" placeholder="Enter Your Email"
+                        formControlName="Email">
+                </div>
+                <div class="custom form-group">
+                    <input type="password" class="custom form-control" placeholder="Enter Your Password"
+                        formControlName="Passwd">
+                </div>
+                <button class="custom btn btn-primary btn-block login-button mt-3" type="submit">Log in</button>
+            </form>
+
+            <!-- Sign Up Form -->
+            <form *ngIf="!isLoginForm" [formGroup]="signupForm" (ngSubmit)="signup()">
+                <div class="custom form-group">
+                    <input type="text" class="custom form-control" placeholder="Enter Your Full Name"
+                        formControlName="UserName">
+                </div>
+                <div class="custom form-group">
+                    <input type="tel" class="custom form-control" placeholder="Enter Your Phone Number"
+                        formControlName="Phone">
+                </div>
+                <div class="custom form-group">
+                    <input type="email" class="custom form-control" placeholder="Enter Your Email"
+                        formControlName="Email">
+                </div>
+                <div class="custom form-group">
+                    <input type="password" class="custom form-control" placeholder="Enter Your Password"
+                        formControlName="Passwd">
+                </div>
+                <button class="custom btn btn-primary btn-block login-button mt-3" type="submit">Sign
+                    Up</button>
+            </form>
+
+            <!-- Toggle between Login and Sign Up -->
+            <p class="custom text-center mt-3 ">
+                {{ isLoginForm ? "Don't have an account? " : "Already have an account? " }}
+                <a (click)="toggleForm()" class="curser">{{ isLoginForm ? 'Sign Up' : 'Log in' }}</a>
+            </p>
+
+            <!-- Google Sign In/Sign Up -->
+            <div class="custom text-center">
+                <a href="javascript:void(0);" class="btn btn-light login-button"
+                    (click)="openExternalSite('https://accounts.google.com', 600, 400)">
+                    <span class="icon"><img src="assets/image/google.png" alt="Google Icon"
+                            style="max-width: 20px; border-radius: 100%;">
+                    </span>
+                    Continue with Google
+                </a>
+            </div>
+
+            <div class="custom text-center">
+                <a href="javascript:void(0);" class="btn btn-light login-button"
+                    (click)="openExternalSite('https://www.facebook.com', 600, 400)">
+                    <span class="icon"><img src="assets/image/fblogo.jpg" alt="Facebook Icon"
+                            style="max-width: 20px; border-radius: 100%;">
+                    </span>
+                    Continue with Facebook
+                </a>
+            </div>
+
+
+
+        </div>
+    </div>
+    <!-- Navbar End -->
+</header>
